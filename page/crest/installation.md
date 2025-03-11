@@ -1,20 +1,12 @@
 ---
 layout: default
 title: Installation
-nav_order: 3
-permalink: /page/installation.html
-summary: "This guide contains detailed step-by-step instructions for the installation of xtb software. Make sure to read it carefully."
+parent: "crest"
+nav_order: 1
+has_children: false
+permalink: /page/crest/installation
 ---
 
-# {{page.title}}
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
----
 ## General Considerations
 
 The xtb software is open-source and available under the LGPL 3.0 license on the GitHub platform. This guide provides a brief summary of the existing [guideline](https://xtb-docs.readthedocs.io/en/latest/setup.html). Some features are available only for the newer version of xtb (`=6.7.0`, [start Linux download](https://github.com/grimme-lab/xtb/releases/download/v6.7.0/xtb-6.7.0-linux-x86_64.tar.xz)).
@@ -65,19 +57,3 @@ export FC=ifort CC=icc
 Finally, you can build the project with [Meson](https://mesonbuild.com/):
 ```bash
 meson setup build --buildtype=release
-meson compile -C build
-```
-
-## External Driver Programs
-During the workshop, we will use external programs, namely *Conformer–Rotamer Ensemble Sampling Tool* (CREST) and *Command-line Energetic Sorting* (CENSO).
-Note that CENSO is only required in the optional 6th exercise.
-The simplest way to install CREST is by downloading the [precompiled binaries](https://github.com/crest-lab/crest/releases), similar to xtb. Full installation instructions can be found [here](https://crest-lab.github.io/crest-docs/page/installation/install_basic.html).
-The installation instructions for CENSO can be found in the [official project repository](https://github.com/grimme-lab/CENSO).
-
-
-## Utility Tools
-During the course of the workshop, you will also need to visualize molecular structures.
-The required graphical user interfaces (GUIs) include [Avogadro](https://avogadro.cc/), [Molden](https://www.theochem.ru.nl/molden/), Chimerax and others.
-Additionally, you should have a text editor (e.g., vim, nano, VSCode) to edit input files and adjust calculation parameters as needed.
-
-

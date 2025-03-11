@@ -4,7 +4,7 @@ title: Installation
 parent: "xtb"
 nav_order: 1
 has_children: false
-permalink: /page/xtb/overview
+permalink: /page/xtb/installation
 ---
 
 ## General Considerations

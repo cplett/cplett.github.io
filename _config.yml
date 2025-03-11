@@ -1,14 +1,14 @@
-title: VWSCC-xTB
-description: xTB workshop for the Virtual Winter School on Computational Chemistry 2025
+title: xtb workshop
+description: xtb workshop
 remote_theme: "just-the-docs/just-the-docs"
 
 
 baseurl: ""
-url: https://vwscc-xtb.github.io
+url: https://cplett.github.io
 
 logo: /assets/images/xtb.svg
 favicon_ico: /assets/images/xtb.svg
-repository: vwscc-xtb/vwscc-xtb.github.io
+repository: cplett/cplett.github.io
 color_scheme: light
 
 permalink: pretty

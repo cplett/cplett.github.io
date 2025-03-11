@@ -1,14 +1,17 @@
 ---
 layout: default
-title: Overview
-nav_order: 2
-has_children: false
-permalink: /page/overview
+nav_order: 1
+title: literature
+has_children: true
+permalink: page/literature
+toc: false
 ---
+# {{page.title}}
+{: .no_toc}
 
 ## Literature
 
-This practice session is designed for users to explore the [xtb](https://github.com/grimme-lab/xtb)  software package as the central codebase for GFNn-xTB methods and their applicability to various types of calculations.
+The workshop is generally desined to impart knowledge about the practical application of the Grimme-lab software.
 For deeper insights into the mathematical construction and technical details of the here used GFNn-xTB methods please read the original literature (excerpt):
 
 
@@ -29,7 +32,7 @@ For deeper insights into the mathematical construction and technical details of 
 {: .fs-6 .fw-300 }
 
 - **Review 2 ||** Albert Katbashev, Marcel Stahn, Thomas Rose, Vahide Alizadeh, Marvin Friede, Christoph Plett, Pitt Steinbach, and Sebastian Ehlert, ”Overview on Building Blocks andApplications of Efficient and Robust Extended Tight Binding”.
-[*ChemRxiv*, **2024**.](https://doi.org/10.26434/chemrxiv-2024-pvfs0)
+[*The Journal of Physical Chemistry A*, **2024**.](https://pubs.acs.org/doi/full/10.1021/acs.jpca.4c08263?casa_token=uPgML0DDBQQAAAAA%3AbIgVs5hy8fjkePOx3okkJYNKnRYMuFCv6Wd-jCEUMJurAvCARtBVt5lHh-IYNmL_WS_MGxSGlyoxOw)
 {: .fs-6 .fw-300 }
 
 - **mcGFN-FF ||** Stefan Grimme and Thomas Rose. “mcGFN-FF: an accurate force field for optimization and energetic screening of molecular crystals”. 
@@ -52,18 +55,13 @@ For deeper insights into the mathematical construction and technical details of 
 [*The Journal of Physical Chemistry A 125*, **2021**, *19*, 4039-4054.](https://doi.org/10.1021/acs.jpca.1c00971)
 {: .fs-6 .fw-300 }
 
+- **QCxMS ||** Koopman, Jeroen, and Grimme, Stefan. "From QCEIMS to QCxMS: A Tool to Routinely Calculate CID Mass Spectra Using Molecular Dynamics" 
+[*Journal of the American Society for Mass Spectrometry*, **2021**, *32*, 1735.](https://pubs.acs.org/doi/10.1021/jasms.1c00098)
+{: .fs-6 .fw-300 }
+
+- **QCxMS2 ||** Gorges, Johannes, and Grimme, Stefan. "rom QCEIMS to QCxMS: A Tool to Routinely Calculate CID Mass Spectra Using Molecular Dynamics" 
+[*Physical Chemistry Chemical Physics*, **2025**](https://pubs.rsc.org/en/content/articlelanding/2025/cp/d5cp00316d)
+{: .fs-6 .fw-300 }
+
+
 Please also visit the [xtb documentation](https://xtb-docs.readthedocs.io/en/latest/) and the xtb command line help and manual entries if you need more information.
-
-
-## Workshop Format
-
-The practical part of the workshop is designed as a guided problem-solving session.
-For the most part, the exercises are intended to be self-sufficient, requiring minimal guidance.
-However, if you have any questions or encounter difficulties, we, grimme-lab team, is here to support you.
-
-{% include warning.html content='As the sessions have 10–15 participants per instructor, we kindly ask you to be considerate and patient with both instructors and the other participants.'%} 
-
-We offer 3(-4) groups during the workshop:
-1. Beginners, who have almost never used any quantum chemistry (QC) program (1 group).
-2. Intermediates, who know how to use some QC program but not xtb (1 group).
-3. Advanced, who have already used xtb (1 group).
