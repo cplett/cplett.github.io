@@ -159,3 +159,6 @@ H            7.61690000000000       -4.89310000000000       -2.60050000000000
 You can check the structure during geometry optimization by visualizing the **xtbopt.log** file that can directly be opened with, **e.g.**, molden.
 
 The maximum number of geometry optimization cycles is determined automatically at runtime, but it is maximum 10000 cycles. This can be adjusted by the **--cycles <INTEGER>** keyword. The treshold for converging the geometry optimization can be set by providing a level after the optimization flag (**--opt <level>**). More information and possible levels can be found at the [documentation](https://xtb-docs.readthedocs.io/en/latest/optimization.html).
+
+## Constraining and Fixing
+With an additional **xtb** input file it is possible to constrain certain 
