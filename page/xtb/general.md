@@ -4,8 +4,10 @@ title: General
 parent: "xtb"
 nav_order: 2
 has_children: false
-permalink: /page/xtb/overview
+permalink: /page/xtb/general
 ---
+
+# Using **xtb**
 
 ## Getting Help
 To get help and an overview over different flags usable with **xtb**, you can either use the [documentation](https://xtb-docs.readthedocs.io/en/latest/index.html) or call the help function of xtb:
@@ -40,6 +42,9 @@ xtb struc.xyz
 ```
 
 To invoke different kinds of calculations and to call different functionalities, generelly flags are provided when calling the **xtb** program. They will be introduced in the following excercises. Most of these flags can also be combined, **e.g.**, to perform a geometry optimization with an implicit solvent model.
+
+## Charges and number of unpaired electrons
+**xtb** can also handle charged molecules as well as molecules with unpaired electrons. Charges and the number of unpaired electrons can either be set via the command line (`--chrg <INT>` and `--uhf <INT>`) flag or with a *.CHRG* and *.UHF* file in the working directory that contain just the respective number.
 
 ## Additional inputs
 **xtb** comes with robust defaults, but sometimes detailed settings must be adjusted. Therefore, an additional input file can be provided with:
@@ -78,6 +83,3 @@ $end
 
 where the atoms 1, 2, 3, 11 and 12 are constrained relative to each other, as well as all carbon and nitrogen atoms.
 If a constrain is not enough, also exact fixing in Cartesian space can be done with the `$fix` block. This however does only work for geometry optimizations, but not for MD simulations. Detailed information can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/xcontrol.html).
-
-## Charges and number of unpaired electrons
-**xtb** can also handle charged molecules as well as molecules with unpaired electrons. Charges and the number of unpaired electrons can either be set via the command line (**--chrg <INT>** and **--uhf <INT>**) flag or with a **.CHRG** and **.UHF** file in the working directory that contain just the respective number.

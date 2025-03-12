@@ -7,6 +7,8 @@ has_children: false
 permalink: /page/xtb/installation
 ---
 
+# Installation
+
 ## General Considerations
 
 The xtb software is open-source and available under the LGPL 3.0 license on the GitHub platform. This guide provides a brief summary of the existing [guideline](https://xtb-docs.readthedocs.io/en/latest/setup.html). Some features are available only for the newer version of xtb (`=6.7.0`, [start Linux download](https://github.com/grimme-lab/xtb/releases/download/v6.7.0/xtb-6.7.0-linux-x86_64.tar.xz)).

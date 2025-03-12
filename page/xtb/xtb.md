@@ -10,6 +10,7 @@ toc: false
 {: .no_toc}
 
 The **xtb** program provides access to the GFN1-xTB, GFN2-xTB, and GFN-FF methods as well as several functionalities alongside. Many of them will be covered by this workshop. A complete documentation can be found [here](https://xtb-docs.readthedocs.io/en/latest/index.html).
+For this workshop, please use xtb version 6.7.0.
 
 
 ## Literature

@@ -7,219 +7,89 @@ has_children: false
 permalink: page/xtb/docking
 ---
 
-# {{ page.title }}
+Another feature of the **xtb** program is the *aISS* docking tool. 
+This is a efficient tool for docking two or more molecules.
+It can be used with:
 
-A frequent experiment in computational chemistry is mechanism elucidation which requires reaction path searches. Of course the here presented example is so small that a DFT path search would easily be doable but for the sake of simplicity we nevertheless go for a plain Diels-Alder reaction at the *GFN2-xTB* (gas) level.
+```bash
+xtb dock mol1.xyz mol2.xyz
+```
 
-## Optional Exercise: Building the Structures
+Charges and the number of unpaired electrons for both molecules can be defined individually with the `--chrg1 <INT>`, `--chrg2 <INT>`, `--uhf1 <INT>`, and `--uhf2 <INT>` flags.
 
-{% include image.html file="dielsalderrct.png" alt="CREST" max-width=600 %}
+As an example, dock the following molecules. Molecule A has a charge of +1, molecule B of -1.
 
-Build the input structures (buta-1,3-diene and but-2-ene) yourself with a molecular editor, e.g. avogadro.
-Pay attention that the atom order is the same in the start and end structure.
-
-Since the construction can be cumbersome, we also provide the start and end structures below.
 
 <!-- Tab links -->
 <div class="tab card">
   <button
-    class="tablinks tab-id-3-start"
-    onclick="openTabId(event, 'struc-3-start', 'tab-id-3-start')"
-    id="open-3-start">
-    {{ site.data.icons.codefile }} <code>start.xyz</code>
+    class="tablinks tab-id-1"
+    onclick="openTabId(event, 'struc-1', 'tab-id-1')"
+    id="open-1">
+    {{ site.data.icons.codefile }} <code>molA.xyz</code>
   </button>
   <button
-    class="tablinks tab-id-3-end"
-    onclick="openTabId(event, 'struc-3-end', 'tab-id-3-end')">
-    {{ site.data.icons.codefile }} <code>end.xyz</code>
+    class="tablinks tab-id-1"
+    onclick="openTabId(event, 'struc-2', 'tab-id-1')">
+    {{ site.data.icons.codefile }} <code>molB.xyz</code>
   </button>
 </div>
 <!-- Tab content -->
-<div id="struc-3-start" class="tabcontent tab-id-3-start" style="text-align:justify">
-{% capture struc_file_start %}
-22
-
-C         -1.28276        2.69140        0.40114
-C         -0.10622        3.47437       -0.10487
-C         -1.31725        1.34886        0.39739
-C         -0.18963        0.50818       -0.12814
-H          0.09446        3.22837       -1.16875
-H          0.79145        3.24332        0.50544
-H         -0.32128        4.56048       -0.02803
-H          0.73638        0.70010        0.45170
-H         -0.01088        0.73766       -1.20004
-H         -0.45423       -0.56621       -0.03962
-C         -4.15786        2.74293       -0.82082
-C         -4.13449        1.25635       -0.75405
-C         -3.15708        3.50005       -1.28913
-C         -3.11517        0.49310       -1.17571
-H         -2.21537        0.91108       -1.60550
-H         -3.18122       -0.58578       -1.08070
-H         -3.26017        4.58033       -1.29328
-H         -2.23255        3.07727       -1.66093
-H         -5.05032        3.24434       -0.45751
-H         -5.00213        0.76050       -0.33223
-H         -2.14406        3.23510        0.77856
-H         -2.20376        0.84820        0.77610
+<div id="struc-1" class="tabcontent tab-id-1" style="text-align:justify">
+{% capture struc_file_1 %}
+26
+ energy: -48.614767811026 gnorm: 0.000258649455 xtb: 6.4.1 (afa7bdf)
+C         4.91530661517725    6.70283245094063    7.93716475951803
+C         4.70274443502525    6.57377729590493    9.29524339877115
+H         4.09102174399250    7.26033628697812    9.85619438676986
+C         5.30083332347772    5.50886296651214    9.95148435215316
+H         5.14950194396918    5.39341270236785   11.01271420108665
+C         6.07968625421465    4.60874288641406    9.24518865717228
+H         6.54677504050510    3.78278315133684    9.75767540823253
+C         6.25703022783366    4.75482454682128    7.88004220926858
+H         6.86007029320169    4.04168399010195    7.34301476032045
+C         5.66602589617880    5.80800301477451    7.18908033030661
+C         5.86757693738733    6.01057612526783    5.69193856008651
+C         7.08202831053878    6.91791330345741    5.48228665306979
+H         7.24115049352935    7.07340643740184    4.41937035609539
+H         7.97015992903950    6.46898272395727    5.91528468405366
+H         6.90905459937370    7.88538694516834    5.94891470399975
+C         6.00723529207749    4.69862546864148    4.92713759447965
+H         5.21841097621933    3.99954166143467    5.19740910959166
+H         6.96848369282735    4.23481873803338    5.12168284991214
+H         5.95419366234075    4.90262716196177    3.86004767791694
+C         3.64840129849507    9.67356063984810    8.63166910176501
+O         4.73243266730302    6.72691667725402    5.16545009366973
+H         4.06891690953035    6.10561213656021    4.82852948175645
+F         4.75466800938595    9.73439880907246    9.35215456436095
+F         2.67459899148865    9.19239065754443    9.38100275774183
+F         3.32953186458964   10.86751693409879    8.19537197705647
+I         4.01066059229276    8.37336628814393    6.88654737084331
 {% endcapture %}
-{% include codecell.html content=struc_file_start style="font-size:10px" %}
+{% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
-<div id="struc-3-end" class="tabcontent tab-id-3-end" style="text-align:justify">
-{% capture struc_file_end %}
-22
-
-C         -1.60263        2.81026       -0.14343
-C         -0.19808        3.43006       -0.17459
-C         -1.64659        1.22316       -0.03985
-C         -0.31094        0.50969       -0.31334
-H          0.35069        3.11556       -1.08734
-H          0.37757        3.13476        0.72718
-H         -0.27170        4.53852       -0.17884
-H          0.46981        0.84157        0.40135
-H          0.03500        0.70341       -1.35082
-H         -0.43141       -0.58687       -0.17934
-C         -3.85714        2.76279       -1.12879
-C         -3.97924        1.44105       -0.94234
-C         -2.47150        3.33574       -1.31197
-C         -2.72876        0.60996       -0.97523
-H         -2.35337        0.65325       -2.02228
-H         -2.93209       -0.45611       -0.73712
-H         -2.52163        4.44604       -1.32265
-H         -2.04129        2.99420       -2.27859
-H         -4.72692        3.41029       -1.07982
-H         -4.94744        0.99186       -0.74611
-H         -2.09637        3.20130        0.77678
-H         -1.92079        0.98738        1.01317
+<div id="struc-2" class="tabcontent tab-id-1" style="text-align:justify">
+{% capture struc_file_2 %}
+15
+ energy: -58.627917250038 gnorm: 0.000569925187 xtb: 6.4.1 (afa7bdf)
+C         1.69917908436396    3.16419000234708    5.71715609389680
+C         2.60797179763240    5.77666501630793    1.55859710223873
+N         3.04393410713759    4.87876887895570    4.08766375461315
+O         1.71709471089772    5.74460140297995    5.99119818311252
+O         0.49329287309353    4.87672637525144    4.06446686790556
+O         2.06112121487995    3.28932161619064    2.35293444108821
+O         4.39145876797790    4.00283070449141    2.20140862554339
+F         2.78451881723356    3.06550089656539    6.49714305953822
+F         0.63418103893843    3.02555503292592    6.52249893622828
+F         1.70857427523024    2.10779486104579    4.90543392667151
+F         1.42635733996611    6.33666447079787    1.81496418774220
+F         3.53272631929243    6.73443277485248    1.71239388025687
+F         2.60933613238697    5.44729166600378    0.25762027938529
+S         1.67585920791859    4.85884119332730    4.86637940756559
+S         3.05359431305024    4.27861510795718    2.63234125421372
 {% endcapture %}
-{% include codecell.html content=struc_file_end style="font-size:10px" %}
+{% include codecell.html content=struc_file_2 style="font-size:10px" %}
 </div>
-{% include defaulttab.html id="open-3-start" %}
+{% include defaulttab.html id="open-2" %}
 
-
-## Pathfinder
-Perform a reaction path search at the *GFN2-xTB* (gas) level of theory for the given reactants. You need the following input file (`path.inp`) in addition to your coordinate files:
-
-<!-- Tab links -->
-<div class="tab card">
-  <button class="tablinks tab-id-3-1" onclick="openTabId(event, 'command-3-1', 'tab-id-3-1')" id="open-3-1">{{ site.data.icons.code }} <code>command</code></button>
-  <button class="tablinks tab-id-3-1" onclick="openTabId(event, 'struc-3-1', 'tab-id-3-1')">{{ site.data.icons.codefile }} <code>path.inp</code></button>
-</div>
-<!-- Tab content -->
-<div id="command-3-1" class="tabcontent tab-id-3-1" style="text-align:justify">
-{% include command.html cmd="xtb start.xyz <span class='nt'>--path</span> end.xyz <span class='nt'>--input</span> path.inp > path.out &" %}
-</div>
-<div id="struc-3-1" class="tabcontent tab-id-3-1" style="text-align:justify">
-{% capture struc_file %}
-$path
-nrun=1 # number of runs
-npoint=25 # number of points on path
-anopt=10 # how many optimization steps per point
-kpush=0.003 # push factor for path search
-kpull=-0.015 # pull factor for path search
-ppull=0.05
-alp=1.2
-$end
-
-{% endcapture %}
-{% include codecell.html content=struc_file style="font-size:10px" %}
-</div>
-
-The resulting path should be written to `xtbpath.xyz`.
-
-{% include defaulttab.html id="open-3-1" %}
-
-
-## Growing String Method
-Another option for reaction path search is the growing string method (GSM) developed by the Zimmermann group and adapted for xtb. To set it up, you'll need `inpfileq` (provided), `ograd` (provided) which you can download [here](https://github.com/grimme-lab/molecularGSM/releases/tag/rev1).
-
-First, unpack the downloaded archive and place the `gsm.orca` program in your path.
-Next, go to your working directory and place `inpfileq` and `ograd` there.
-Then, you have to create a direcotry named `scratch` and move the `tm2orca.py` script into it.
-Concatenate the start.xyz and end.xyz file into `initial0000.xyz` and move the latter also into the scratch directory. 
-Finally, make the `ograd` and `tm2orca.py` scripts are executable with
-```bash
-chmod u+x ograd
-chmod u+x scratch/tm2orca.py
-```
-Start the calculation with the following command or use the `run.sh` script to check if you followed all the above steps and all files are in the correct location.
-
-<!-- Tab links -->
-<div class="tab card">
-  <button class="tablinks tab-id-3-2" onclick="openTabId(event, 'command-3-2', 'tab-id-3-2')" id="open-3-2">{{ site.data.icons.code }} <code>command</code></button>
-  <button class="tablinks tab-id-3-2" onclick="openTabId(event, 'struc-3-2', 'tab-id-3-2')">{{ site.data.icons.codefile }} <code>run.sh</code></button>
-</div>
-<!-- Tab content -->
-<div id="command-3-2" class="tabcontent tab-id-3-2" style="text-align:justify">
-{% include command.html cmd="gsm.orca > gsm.out 2> end &" %}
-</div>
-<div id="struc-3-2" class="tabcontent tab-id-3-2" style="text-align:justify">
-{% capture run_file %}
-#!/bin/bash
-
-if ! command -v gsm.orca >/dev/null 2>&1; then
-    echo "The program 'gsm.orca' was not found."
-    exit 1
-fi
-
-if ! command -v xtb >/dev/null 2>&1; then
-    echo "The program 'xtb' was not found."
-    exit 1
-fi
-
-if [[ ! -f "ograd" ]]; then
-    echo "The file 'ograd' was not found."
-    exit 1
-fi
-
-if [[ ! -x "ograd" ]]; then
-    echo "The file 'ograd' is not executable."
-    exit 1
-fi
-
-if [[ ! -d "scratch" ]]; then
-    echo "The directory 'scratch' was not found."
-    exit 1
-fi
-
-if [[ ! -f "scratch/initial0000.xyz" ]]; then
-    echo "The file 'scratch/initial0000.xyz' was not found."
-    echo "You can create it with the following command:"
-    echo "cat start.xyz end.xyz > scratch/initial0000.xyz"
-    exit 1
-fi
-
-if [[ ! -f "scratch/tm2orca.py" ]]; then
-    echo "The file 'scratch/tm2orca.py' was not found."
-    exit 1
-fi
-
-if [[ ! -x "scratch/tm2orca.py" ]]; then
-    echo "The file 'scratch/tm2orca.py' is not executable."
-    exit 1
-fi
-
-gsm.orca > gsm.out 2> err &
-
-{% endcapture %}
-{% include codecell.html content=run_file style="font-size:10px" %}
-</div>
-{% include defaulttab.html id="open-3-2" %}
-
-The resulting path is written to `stringfile.xyz0000` and can be used to find the transition state.
-
-### Frequencies
-
-Identify the transition states for the pathfinder and GSM approaches and calculate frequencies for them at the *GFN2-xTB* (gas) level of theory.
-
-```bash
-xtb coord.xyz --hess > hess.out &
-```
-
-Have a look at the vibrational modes of the transition state in `g98.out` and `vibspectrum` with e.g. molden and check whether the correct TS was found and aligns with your chemical intuition and how both approaches compare.
-
-
-
-
-
-
-
+The best structure found is written to `best.xyz`. Additionally, the 15 best structures are written per default to the `final_structures.xyz` file. Both can be visualized by opening them with a graphical program like molden.

@@ -7,6 +7,8 @@ has_children: false
 permalink: page/xtb/spinpol
 ---
 
+# Spin Polarization
+
 The **xtb** methods inherently can not differentiate properly between high-spin and low-spin states, this shortcoming is corrected with the presented methods termed spGFNn-xTB. It can be invoked via the **tblite** and allows a fast screening of spin states:
 
 ```bash

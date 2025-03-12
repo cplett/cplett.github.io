@@ -60,6 +60,6 @@ H     -1.2415000000   -2.6142000000   -0.4801000000
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-After the CREST calculation, you will find your ensemble and some additional files in your working directory. Your ensemble will be dumped in XYZ format in a file called `crest_conformers.xyz`.
+After the CREST calculation, you will find your ensemble and some additional files in your working directory. Your ensemble will be dumped in XYZ format in a file called `crest_conformers.xyz`. You can have a look at the ensemble file by opening it with, e.g., molden.
 
 {% include warning.html content='CREST works stochastically and is thus non-deterministic. For molecules with higher flexibility, the results of CREST might differ and thus, multiple runs should be used.'%}
