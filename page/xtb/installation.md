@@ -11,14 +11,13 @@ permalink: /page/xtb/installation
 
 The xtb software is open-source and available under the LGPL 3.0 license on the GitHub platform. This guide provides a brief summary of the existing [guideline](https://xtb-docs.readthedocs.io/en/latest/setup.html). Some features are available only for the newer version of xtb (`=6.7.0`, [start Linux download](https://github.com/grimme-lab/xtb/releases/download/v6.7.0/xtb-6.7.0-linux-x86_64.tar.xz)).
 In case of any issues, you can always refer to the full documentation for further details.
-Even though xtb is cross-platform, for simplicity and stability reasons, we assume a **Linux** distribution for the rest of the workshop.
 
 {% include warning.html content="Primary operating system (OS) for the development and application of **xtb** is Linux. While it is possible to install **xtb** on Windows and macOS, support for these platforms may be more limited." %}
 
 
 ## Straighforward Installation
-The most straightforward way to install xtb is by downloading the [precompiled binaries](https://github.com/grimme-lab/xtb/releases). You can also get bleeding-edge version of the program.
-After downloading the appropriate version, extract it, make it executable, and add it to your `PATH` variable:
+The most straightforward way to install xtb is by downloading the [precompiled binaries](https://github.com/grimme-lab/xtb/releases). You can also get a bleeding-edge version of the program.
+After downloading the appropriate version, extract it, make it executable, and add it to your `PATH` variable for easy use:
 
 ```bash
 tar -xvf xtb*.tar.xz
@@ -26,6 +25,7 @@ chmod +x ./xtb-dist/bin/xtb
 export PATH=$PWD/xtb-dist/bin:$PATH
 ```
 
+Alternatively, you can copy the **xtb** binary to a directory of your liking, **e.g.**, your bin.
 To verify that the executable is correctly linked, use:
 
 ```bash
@@ -36,7 +36,7 @@ And check the installed version with:
 xtb --version
 ```
 
-{% include tip.html content='You can add the full path to your Bash shell configuration file (~/.bashrc) to automatically load **xtb** in new sessions.'%}
+{% include tip.html content='You can add the full path to your **xtb** executable to the Bash shell configuration file (~/.bashrc) to automatically load **xtb** in new sessions.'%}
 
 
 ## Compilation 
@@ -57,3 +57,29 @@ export FC=ifort CC=icc
 Finally, you can build the project with [Meson](https://mesonbuild.com/):
 ```bash
 meson setup build --buildtype=release
+meson compile -C build
+```
+
+Alternatively, `gfortran`/`gcc` compilers are also supported. For a complete list of supported compilers and backends, please see the [github page](https://github.com/grimme-lab/xtb?tab=readme-ov-file#semiempirical-extended-tight-binding-program-package).
+
+
+## Important settings
+To work properly also for large systems, it is recommended to unlimit the system stack size, **e.g.**, with bash by:
+
+```bash
+ulimit -s unlimited
+```
+
+This can also be included in the **.bashrc** file.
+
+Further, to allow parallelisation, a reasonable large number of OMP stacksize must be provided, **e.g.**:
+
+```bash
+export OMP_STACKSIZE=4G
+```
+
+and the number of cores to be used by **xtb** are set with
+
+```bash
+export OMP_NUM_THREADS=<ncores>,1
+```

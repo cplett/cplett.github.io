@@ -1,22 +1,13 @@
 ---
 layout: default
-title: CREST
-parent: "Exercises"
-nav_order: 5
+title: protonation
+parent: "crest"
+nav_order: 6
 has_children: false
-permalink: page/exercises/crest
+permalink: page/crest/crest
 ---
 
 # {{ page.title }}
-
-Semi-empirical methods are often employed to explore and efficiently sample the conformational space of molecules.
-The Conformer-Rotamer Ensemble Sampling Tool (CREST) uses the GFN methods to generate ensembles and find low-energy structures.
-Besides conformational search algorithms, CREST provides a variety of workflows.
-In the following, we will investigate the (de)protonation site screening.
-
-If you do not have CREST yet, download the latest binary [from the website](https://crest-lab.github.io/crest-docs/page/installation/install_basic.html#option-1-installation-from-precompiled-binaries) or [directly](https://github.com/crest-lab/crest/releases/download/latest/crest-gnu-12-ubuntu-latest.tar.xz) and put it in your path.
-
-For more information about CREST, check out the [docs](https://crest-lab.github.io/crest-docs/).
 
 ## Protonation
 

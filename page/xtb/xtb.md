@@ -9,10 +9,11 @@ toc: false
 # {{page.title}}
 {: .no_toc}
 
+The **xtb** program provides the access to the GFN1-xTB, GFN2-xTB, and GFN-FF methods as well as several functionalities alongside. Many of them will be covered by this workshop. A complete documentation can be found [here](https://xtb-docs.readthedocs.io/en/latest/index.html).
+
+
 ## Literature
 
-
-This practice session is designed for users to explore the [xtb](https://github.com/grimme-lab/xtb)  software package as the central codebase for GFNn-xTB methods and their applicability to various types of calculations.
 For deeper insights into the mathematical construction and technical details of the here used GFNn-xTB methods please read the original literature (excerpt):
 
 
@@ -47,13 +48,3 @@ For deeper insights into the mathematical construction and technical details of 
 - **ONIOM ||** Christoph Plett, Albert Katbashev, Sebastian Ehlert, Markus Bursch, and Stefan Grimme. “ONIOM meets xtb: efficient, accurate, and robust multi-layer simulations across the periodic table”. 
 [*Phys. Chem. Chem. Phys.*, **2024**, *26*, 12610.](https://doi.org/10.1039/D3CP02178E)
 {: .fs-6 .fw-300 }
-
-- **CREST ||** Philipp Pracht, Fabian Bohle, and Stefan Grimme. “Automated exploration of the low-energy chemical space with fast quantum chemical methods”. 
-[*Phys. Chem. Chem. Phys.*, **2020**, *22(14)*, 7169–7192.](https://doi.org/10.1039/C9CP06869D)
-{: .fs-6 .fw-300 }
-
-- **CENSO ||** Grimme, Stefan, Fabian Bohle, Andreas Hansen, Philipp Pracht, Sebastian Spicher, and Marcel Stahn. "Efficient quantum chemical calculation of structure ensembles and free energies for nonrigid molecules." 
-[*The Journal of Physical Chemistry A 125*, **2021**, *19*, 4039-4054.](https://doi.org/10.1021/acs.jpca.1c00971)
-{: .fs-6 .fw-300 }
-
-Please also visit the [xtb documentation](https://xtb-docs.readthedocs.io/en/latest/) and the xtb command line help and manual entries if you need more information.
