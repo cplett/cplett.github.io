@@ -7,7 +7,7 @@ has_children: false
 permalink: page/xtb/periodic
 ---
 
-#Periodic Calculations
+# Periodic Calculations
 
 With **xtb** version 6.7.0, the GFN-FF method supports periodic calculations via periodic boundary conditions. 
 Additionally, a special run mode (mcGFN-FF) with scaled non-covalent interactions (NCI), was introduced and is recommended for periodic systems.
@@ -27,7 +27,7 @@ As an example, optimize the unit cell of benzene. To visualize the structure you
     class="tablinks tab-id-1"
     onclick="openTabId(event, 'struc-1', 'tab-id-1')"
     id="open-1">
-    {{ site.data.icons.codefile }} <code>erythromycin.xyz</code>
+    {{ site.data.icons.codefile }} <code>benzene.xyz</code>
   </button>
 </div>
 <!-- Tab content -->

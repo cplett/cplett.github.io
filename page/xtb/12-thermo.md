@@ -7,6 +7,8 @@ has_children: false
 permalink: page/xtb/thermo
 ---
 
+# Thermocorrections
+
 With the **xtb** thermo submodule, thermodynamic functions of a structure can be evaluated based on a previously calculated Hessian. The mRRHO approximation is used.
 It can be invoked with 
 
