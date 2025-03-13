@@ -10,14 +10,16 @@ permalink: page/xtb/sp
 
 # Single-point Calcuations
 
-The most basic feature of **xtb** is the computation of electronic energies, which will be done everytime, an **xtb** calculation is invoked.
-A single-point calculation is done per default when **xtb** is invoked, but can also explicitly be requested with
+The most basic feature of **xtb** is the computation of electronic energies. This is also done everytime, a **xtb** calculation is invoked.
+A single-point calculation can also explicitly be requested with
 
 ```bash
 xtb struc.xyz --sp
 ```
 
-Single-point calculations of xtb can be, for example, be used to quickly identify reasonable conformers. As an example, identify the lowest-energy gas-phase conformer in terms of electronic energy of the following two examples with GFN-FF and GFN2-xTB in kcal/mol.
+The electronic energy in Hartree is printed at the end of the output as `TOTAL ENERGY` along with the `GRADIENT NORM` and the `HOMO-LUMO GAP`.
+
+Single-point calculations of xtb can, for example, be used to quickly identify reasonable conformers. As an example, identify the lowest-energy gas-phase conformer in terms of electronic energy of the following two examples with GFN-FF and GFN2-xTB. Compute their energy difference in kcal/mol.
 
 {% include note.html content='1 Hartree = 627.503 kcal/mol.'%}
 
@@ -134,8 +136,8 @@ H    -2.0910510    2.0001870   -1.7985545
 
 The predicted energy difference of those two conformers with CCSD(T) is 1.4 kcal/mol.
 
-{% include warning.html content='GFN-FF and also GFN2-xTB might yield larger errors in conformational energies for electronically more complex systems and might fail to even predict the energetically lowest conformer. Thus, DFT refinment in such cases with, **e.g.**, CENSO is recommended for a reliable prediction.
-Another way to improve the performance of GFN-FF for ranking conformers is [ConfRank](https://pubs.acs.org/doi/10.1021/acs.jcim.4c01524).'%}
+{% include note.html content='GFN-FF and also GFN2-xTB might yield larger errors in conformational energies for electronically more complex systems and might even fail to predict the energetically lowest conformer. In such cases, DFT refinment with, *e.g.*, **CENSO** is recommended for a reliable predictions.
+A way to improve the performance of GFN-FF for ranking conformers is [ConfRank](https://pubs.acs.org/doi/10.1021/acs.jcim.4c01524).'%}
 
-It is also possible to adjust the accuracy for the SCC convergence of xtb with **--acc <REAL>** and the maximum number of iterations with **--iterations <Integer>**. The latter is especially helpful if the wavefunction does not converge within the default of 250 cycles, **e.g.**, when very large and electronically complex systems are treated. However, if the SCC does not converge, it should be checked manually first before the number of iterations is increased as there might be systems that do not converge at all.
+It is also possible to adjust the accuracy for the SCC convergence of xtb with `--acc <REAL>` and the maximum number of iterations with `--iterations <Integer>`. The latter is especially helpful if the wavefunction does not converge within the default of 250 cycles, *e.g.*, when very large and electronically complex systems are treated. However, if the SCC does not converge, it should be checked manually first before the number of iterations is increased as there might be systems that do not converge at all.
 More information on adjusting the SCC parameters can be found at the manual of [xtb](https://xtb-docs.readthedocs.io/en/latest/sp.html#accuracy-and-iterations).

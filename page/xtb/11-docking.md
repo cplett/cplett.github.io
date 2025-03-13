@@ -19,6 +19,9 @@ xtb dock mol1.xyz mol2.xyz
 
 Charges and the number of unpaired electrons for both molecules can be defined individually with the `--chrg1 <INT>`, `--chrg2 <INT>`, `--uhf1 <INT>`, and `--uhf2 <INT>` flags.
 
+{% include warning.html content='Due to technical problems, the docking in xtb version 6.7.1 does not work properly. It is recommended to use version 6.7.0, or a bleeding-edge version of xtb for this exercise.'%}
+
+
 As an example, dock the following molecules. Molecule A has a charge of +1, molecule B of -1.
 
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 1
+nav_order: 2
 title: xtb
 has_children: true
 permalink: page/xtb
@@ -9,8 +9,12 @@ toc: false
 # {{page.title}}
 {: .no_toc}
 
-The **xtb** program provides access to the GFN1-xTB, GFN2-xTB, and GFN-FF methods as well as several functionalities alongside. Many of them will be covered by this workshop. A complete documentation can be found [here](https://xtb-docs.readthedocs.io/en/latest/index.html).
-For this workshop, please use xtb version 6.7.0.
+The **xtb** program provides access to the GFN1-xTB, GFN2-xTB, and GFN-FF methods as well as several functionalities. Many of them will be covered by this workshop. A complete documentation can be found [here](https://xtb-docs.readthedocs.io/en/latest/index.html).
+Besides the functionalies, the xTB methods convince with a broad applicability to systems containing elements up to Rn (Z=86), a robust and efficient performance, and the ease of use for practical applications.
+
+For this workshop, please use xtb version 6.7.0 or above.
+
+{% include image.html file="toc.png" alt="CREST" max-width=750 %}
 
 
 ## Literature

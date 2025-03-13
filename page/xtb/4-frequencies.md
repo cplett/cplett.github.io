@@ -9,17 +9,23 @@ permalink: page/xtb/Frequencies
 
 # Frequency calculations
 
-With **xtb**, also hessian calculations can be done which is required for thermocorrections to free energies and to compute IR and Raman spectra. To perform a hessian computation, the **--hess** can be used
+With **xtb**, also hessian calculations can be done which is required for thermocorrections to free energies and to compute IR and Raman spectra. To perform a Hessian computation, the `--hess` flag can be used
 
 ```bash
 xtb struc.xyz --hess
 ```
 
-Alternatively, the **--ohess** flag directly performs an optimization with subsequent hessian computation. At the end of the calculation, the printout will contain the frequencies, total free energy and total thermocorrection (G(RRHO) contrib.).
-Further, a **vibspectrum** file will be written containing the IR active modes with the respective intensities. Additionally, a gaussian output **g98.out** will be written, which can be opened to directly look at the vibrational levels computed.
+
+Alternatively, the `--ohess` flag directly performs an optimization with subsequent Hessian computation.
+
+{% include warning.html content='Computing Hessians on not fully optimized structures or transition states will have no physical meaning and should generally not be used to compute thermocontributions or spectra.'%}
+
+At the end of the calculation, the printout will contain the frequencies, total free energy and total thermocorrection (`G(RRHO) contrib.`).
+Further, a `vibspectrum` file will be written containing the IR active modes with the respective intensities.
+Additionally, a gaussian output `g98.out` will be written, which can be opened with, *e.g.*, molden to directly look at the vibrational levels computed.
 These can be used to identify transition states or to confirm that the geometry converged into a minimum.
 
-Check, if the provided structure is a minimum, a reasonable transtition state or an arbitrary point on the PES. Use GFN2-xTB with ALPB(THF). What happens when using GFN-FF with ALPB(THF) for this?
+Check, if the provided structure is a minimum, a reasonable transtition state or an arbitrary point on the PES. Use GFN2-xTB with ALPB(THF). How does the spectrum look change when using GFN-FF with ALPB(THF) instead?
 
 <!-- Tab links -->
 <div class="tab card">
@@ -99,4 +105,6 @@ H -1.86324 -0.09332 -2.73789
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-Another functionality of **xtb** is the Single-Point Hessian (SPH) approach. This allows to compute reasonable Hessians on arbitrary structures. It can be used to, **e.g.**, compute the thermocorrections of a DFT optimized structure to save the computational time of a rather expensive DFT Hessian. It can be used with the **--bhess** flag as explained in the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations). Further information on this can be found in the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).
+Another functionality of **xtb** is the Single-Point Hessian (SPH) approach. This allows to compute reasonable Hessians on arbitrary structures.
+It can be used to, *e.g.*, compute the thermocorrections of a DFT optimized structure to save the computational time of a rather expensive DFT Hessian.
+To activate it, the `--bhess` flag is used as explained in the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations). Further information on the theoretical concept can be found in the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).

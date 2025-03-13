@@ -9,7 +9,7 @@ permalink: page/xtb/MM
 
 # {{ page.title }}
 
-Another functionality of **xtb** is the use for PES scans, **e.g.**, along certain distances and angles.
+Another functionality of **xtb** is the use for PES scans, *e.g.*, along certain distances and angles.
 Hier beschreiben, wie das geht.
 As an example, we will perform a constrained distance scan to disentangle a molecular muscle.
 

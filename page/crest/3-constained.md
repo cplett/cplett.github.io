@@ -7,7 +7,8 @@ has_children: false
 permalink: page/crest/constraints
 ---
 
-For electronically more complex systems, and in case you want to preserve certain structure motifs, **CREST** provides the possibility to contrain certain bonds, dihedral, and torsion angles. For this, a file with similar format to the **xtb** input can be provided with the **--cinp** flag:
+For electronically more complex systems like transition metal complexes, and in case you want to preserve certain structure motifs, *e.g.* a transition state, **CREST** provides the possibility to contrain certain bonds, dihedral, and torsion angles.
+For this, a file with similar format to the **xtb** input can be provided with the **--cinp** flag:
 
 ```bash
 crest struc.xyz --cinp <FILE>

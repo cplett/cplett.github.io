@@ -1,6 +1,6 @@
 ---
 layout: default
-title: periodic calculations
+title: Periodic Calculations
 parent: "xtb"
 nav_order: 12
 has_children: false
@@ -9,14 +9,17 @@ permalink: page/xtb/periodic
 
 # Periodic Calculations
 
-With **xtb** version 6.7.0, the GFN-FF method supports periodic calculations via periodic boundary conditions. 
-Additionally, a special run mode (mcGFN-FF) with scaled non-covalent interactions (NCI), was introduced and is recommended for periodic systems.
+With **xtb** version 6.7.0 and above, the GFN-FF method supports periodic calculations via periodic boundary conditions. 
+Additionally, a special run mode (mcGFN-FF) with scaled non-covalent interactions (NCI) was introduced and is recommended for periodic systems.
 It can be used for a fast optimization of periodic systems, optionally without optimizating the cell parameters (*--nocellopt*).
-A periodic GFN-FF calculation is invoked similarly to a normal GFN-FF calculation, except for that only the Turbomole, Vasp’s POSCAR/CONTCAR, and genFormat file format can be used as they can contain information about the lattice in addition to the molecular structure. A optimization can be done with
+A periodic GFN-FF calculation is invoked similarly to a normal GFN-FF calculation, except for that the structure input file must contain information about the lattice. Therefore, only the Turbomole, Vasp’s POSCAR/CONTCAR, and genFormat file format can be used.
+A periodic optimization with mcGFN-FF can be done with
 
 ```bash
 xtb struc.coord --mcgfnff --opt
 ```
+
+The resulting structure can be found in `xtbopt.coord` including the optimized lattice parameters. A trajectory of the optimization is found in the `xtboptlog.cif` file.
 
 As an example, optimize the unit cell of benzene. To visualize the structure you can convert the Turbomole format to xyz with, *e.g.*, **mctc-convert**, and open it with a graphical program like molden.
 
@@ -91,6 +94,3 @@ $end
 {% endcapture %}
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
-
-
-The resulting structure can be found in `xtbopt.coord`. A trajectory of the optimization is found in the `xtboptlog.cif` file.
