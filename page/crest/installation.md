@@ -55,4 +55,4 @@ meson setup _build --prefix=$PWD/_dist
 meson install -C _build
 ```
 
-Alternatively, `gfortran`/`gcc` compilers are also supported. For a complete list of supported compilers and backends, please see the [github page](https://github.com/grimme-lab/xtb?tab=readme-ov-file#semiempirical-extended-tight-binding-program-package).
+Alternatively, `gfortran`/`gcc` compilers are also supported. For a complete list of supported compilers and backends, please see the [github page](https://github.com/crest-lab/crest?tab=readme-ov-file#option-3-compiling-from-source).

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ensemble
+title: Ensemble Generation
 parent: "crest"
 nav_order: 3
 has_children: false
@@ -9,16 +9,20 @@ permalink: page/crest/ensemble
 
 # {{ page.title }}
 
-## Ensemble Generation
-
-The main feature of **CREST** is the generation of an ensemble and searching for the global minimum of a structure. This can be done with
+The main feature of **crest** is the generation of an ensemble and searching for the global minimum of a structure. This can be done with
 
 ```bash
 crest struc.xyz
 ```
 
-Typical features of **xtb** can be used also with **CREST**, for example implicit solvation and the different GFN methods. The command line flags are similar to **xtb**.
-You can define the number of cores to use with the **-T** argument. \\
+This results to a file called `crest_best.xyz` containing the best conformer found, `crest_conformers.xyz` containing the conformer ensemble sorted by energy and without duplicates, and the `crest_rotamers.xyz` file containing an ensemble of rotamers sorted by energy.
+
+Many features of **xtb** can be used also with **crest**, for example, implicit solvation and the different GFN methods. The command line flags are similar to **xtb**, *e.g.,* `--alpb <solvent>` or `--gfnff`.
+You can define the number of cores to use with the **-T** argument. All available flags are listet in the [documentation](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html).
+
+**crest** comes with mostly robust defaults. However, setting robust defaults covering the complete chemical space is not possible. Therefore, it might especially for NCI complexes be necessary, to adjust these defaults. More on this is explained in the [respective chapter](page/crest/nci).
+
+{% include warning.html content='Per default, **crest** generates an ensemble with structures in a certain energy window, *e.g.*, for a conformer searches per default 6 kcal/mol. Every conformer above this window will be discarded and is lost forever. Especially, for electronicially challenging systems were the applied method, *e.g.*, GFN2-xTB, is expected to have larger errors, important conformers are lost and cannot be recovered by following ensemble refinments. Thus, it is very important to increase the energy window for such cases with the `--ewin <REAL> flag.'%}
 
 As an example, compute the ensemble of histidine including implicit water solvation.
 
@@ -63,3 +67,5 @@ H     -1.2415000000   -2.6142000000   -0.4801000000
 After the CREST calculation, you will find your ensemble and some additional files in your working directory. Your ensemble will be dumped in XYZ format in a file called `crest_conformers.xyz`. You can have a look at the ensemble file by opening it with, e.g., molden.
 
 {% include warning.html content='CREST works stochastically and is thus non-deterministic. For molecules with higher flexibility, the results of CREST might differ and thus, multiple runs should be used.'%}
+
+
