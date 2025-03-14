@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Installation
-parent: "crest"
+parent: "CREST"
 nav_order: 1
 has_children: false
 permalink: /page/crest/installation

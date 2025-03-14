@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Ensemble Generation
-parent: "crest"
+parent: "CREST"
 nav_order: 3
 has_children: false
 permalink: page/crest/ensemble

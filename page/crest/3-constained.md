@@ -1,11 +1,13 @@
 ---
 layout: default
 title: Constraints
-parent: "crest"
+parent: "CREST"
 nav_order: 5
 has_children: false
 permalink: page/crest/constraints
 ---
+
+# Constraints
 
 For electronically more complex systems like transition metal complexes, and in case you want to preserve certain structure motifs, *e.g.* a transition state, **CREST** provides the possibility to contrain certain bonds, dihedral, and torsion angles.
 For this, a file with similar format to the **xtb** input can be provided with the **--cinp** flag:
@@ -18,7 +20,7 @@ All possible contraints are listed in the [documentation](https://xtb-docs.readt
 
 {% include note.html content='The exact fixing of atoms is currently not possible due to instabilities during the MD and MTD simulations.'%}
 
-To easify the manual definition of constraints, **CREST** provides the possibility to automatically generate the required input file. For this, the **--constrain <atomlist>** keyword can be used, where **<atomlist>** defines the index of the atoms to be contrained, **e.g.**:
+To easify the manual definition of constraints, **CREST** provides the possibility to automatically generate the required input file. For this, the **--constrain <atomlist>** keyword can be used, where **<atomlist>** defines the index of the atoms to be contrained, *e.g.*:
 
 ```bash
 crest struc.xyz --contrain 1-5,8,12

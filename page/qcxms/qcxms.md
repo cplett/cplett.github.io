@@ -1,17 +1,14 @@
 ---
 layout: default
-nav_order: 4
-title: CENSO
+nav_order: 5
+title: QCxMS
 has_children: true
-permalink: page/censo
+permalink: page/qcxms
 toc: false
 ---
 # {{page.title}}
 {: .no_toc}
 
-CENSO intro text
-Hinweis, dass orca oder TM gebraucht wird
-censorc 
 
 ## Literature
 - **CENSO ||** Grimme, Stefan, Fabian Bohle, Andreas Hansen, Philipp Pracht, Sebastian Spicher, and Marcel Stahn. "Efficient quantum chemical calculation of structure ensembles and free energies for nonrigid molecules." 

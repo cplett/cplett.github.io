@@ -1,7 +1,7 @@
 ---
 layout: default
-title: protonation
-parent: "crest"
+title: Protonation
+parent: "CREST"
 nav_order: 6
 has_children: false
 permalink: page/crest/crest

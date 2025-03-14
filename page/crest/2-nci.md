@@ -1,13 +1,13 @@
 ---
 layout: default
 title: NCI
-parent: "crest"
+parent: "CREST"
 nav_order: 4
 has_children: false
 permalink: page/crest/nci
 ---
 
-# Speciel NCI Treatment
+# NCI Mode
 
 For systems with non-covalently interacting molecules, **CREST** provides a special runtype invoked with the **--nci** flag:
 

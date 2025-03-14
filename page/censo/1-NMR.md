@@ -1,17 +1,17 @@
 ---
 layout: default
-title: NMR (optional)
-parent: "Exercises"
-nav_order: 5
+title: NMR
+parent: "CENSO"
+nav_order: 3
 has_children: false
-permalink: page/exercises/nmr
+permalink: page/censo/nmr
 ---
 
 # {{ page.title }}
 
-Important application of computational methods is supporting the analysis of experimental spectra. Nuclear magnetic resonance (NMR) spectroscopy is one of the most frequently used methods for structure elucidation or evaluation of reaction products in an experimental setting. Often, the molecules of interest are flexible organic molecules. Therefore, in order to reproduce experimental NMR spectra it can be paramount to use an ensemble approach for the calculation of the spectrum, because of the dependence of chemical shifts and, even more so, coupling constants on the molecular geometry. L-Histidine is a natural product that shows this behavior. Your task going forward is to
-calculate the NMR parameters of L-Histidine using the Conformer-Rotamer Ensebmle Sampling Tool (CREST) and Command-line Energetic Sorting of Conformer-Rotamer Ensembles (CENSO) programs to first generate an ensemble and then calculate the 1H-NMR parameters.
+**CENSO** is not only capable of ensemble refinement, but also allows the automated computation of NMR spectra for a whole ensemble. As NMR is a structure sensitive property, this is a prime example for the importance of ensemble quality.
 
+As an example, use **CENSO** to refine the ensemble you computed for histidine in the [respective crest ensemble](page/crest/ensemble).
 
 {% include image.html file="l-histidine.png" alt="hist" max-width=400 %}
 
@@ -21,7 +21,7 @@ calculate the NMR parameters of L-Histidine using the Conformer-Rotamer Ensebmle
 {% include important.html content='For the next steps, the ORCA software is required.'%}
 
 Next, you are going to refine the ensemble using DFT calculations.
-CREST uses GFN2-xTB as the default method, which produces ensemble rankings that are not accurate enough for NMR calculations.
+**crest** uses GFN2-xTB as the default method, which produces ensemble rankings that are not accurate enough for NMR calculations.
 Therefore, it is necessary to refine the initial ensemble.
 You can do this using CENSO, which is supposed to automate the process of ensemble refinement and property calculation.
 **Before starting your calculations, please configure the program paths in the provided configuration file.**
