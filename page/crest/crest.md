@@ -15,6 +15,8 @@ In addition to conformational search algorithms, CREST offers various workflows,
 
 For more details about CREST, visit the [documentation](https://crest-lab.github.io/crest-docs/).
 
+{% include image.html file="crest_full.png" alt="CREST" max-width=750 %}
+
 ## Literature
 
 - **CREST ||** Philipp Pracht, Fabian Bohle, and Stefan Grimme. “Automated exploration of the low-energy chemical space with fast quantum chemical methods”. 

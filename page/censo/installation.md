@@ -10,8 +10,9 @@ permalink: page/censo/installation
 # {{ page.title }}
 
 **CENSO** v1 is available as precompiled binary from [GitHub](https://github.com/grimme-lab/CENSO/releases/tag/v.1.2.0).
+After making it executable, it can directly be used.
 
-**CENSO** v2 is also available from [GitHub](https://github.com/grimme-lab/CENSO/releases) and can be installed with pip:
+**CENSO** v2 is also available from [GitHub](https://github.com/grimme-lab/CENSO/releases) as archive or `.whl` file. It can installed with pip:
 
 ```bash
 pip install .
