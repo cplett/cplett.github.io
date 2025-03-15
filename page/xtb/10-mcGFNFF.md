@@ -13,6 +13,8 @@ Starting from **xtb** version 6.7.0, the GFN-FF method supports periodic calcula
 
 A periodic GFN-FF calculation is invoked similarly to a normal GFN-FF calculation, with the exception that the structure input file must contain lattice information. Therefore, only the Turbomole, Vasp’s POSCAR/CONTCAR, and genFormat file formats are supported.
 
+{% include note.html content='With **xtb**, only GFN-FF is available for periodic calculations and no Hessian computation is possible. However, in [DFTB+](https://www.dftbplus.org/), a periodic implementation of the GFN-xTB methods is available.' %}
+
 To perform a periodic optimization with mcGFN-FF, use the following command:
 
 

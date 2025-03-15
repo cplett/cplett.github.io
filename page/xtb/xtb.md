@@ -41,8 +41,8 @@ For deeper insights into the mathematical construction and technical details of 
 [*Wiley Interdisciplinary Reviews: Computational Molecular Science 11*, **2021**, *2*,  e1493.](https://doi.org/10.1002/wcms.1493)
 {: .fs-6 .fw-300 }
 
-- **Review 2 ||** Albert Katbashev, Marcel Stahn, Thomas Rose, Vahide Alizadeh, Marvin Friede, Christoph Plett, Pitt Steinbach, and Sebastian Ehlert, ”Overview on Building Blocks andApplications of Efficient and Robust Extended Tight Binding”.
-[*ChemRxiv*, **2024**.](https://doi.org/10.26434/chemrxiv-2024-pvfs0)
+- **Review 2 ||** Albert Katbashev, Marcel Stahn, Thomas Rose, Vahide Alizadeh, Marvin Friede, Christoph Plett, Pit Steinbach, and Sebastian Ehlert, ”Overview on Building Blocks andApplications of Efficient and Robust Extended Tight Binding”.
+[*The Jpurnal of Physical Chemistry A*, **2025**, *129*.](https://pubs.acs.org/doi/10.1021/acs.jpca.4c08263)
 {: .fs-6 .fw-300 }
 
 - **mcGFN-FF ||** Stefan Grimme and Thomas Rose. “mcGFN-FF: an accurate force field for optimization and energetic screening of molecular crystals”. 

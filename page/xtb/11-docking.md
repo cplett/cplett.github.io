@@ -16,11 +16,14 @@ Another feature of the **xtb** program is the *aISS* docking tool. This efficien
 xtb dock mol1.xyz mol2.xyz
 ```
 
+The best structure found is saved to `best.xyz`. Additionally, by default, the 15 best structures are written to the `final_structures.xyz` file. Both files can be visualized by opening them with a graphical program like Molden.
+Additionally, the `best_after_gen.xyz` file contains the best structure found before GFN optimization.
+
 Charges and the number of unpaired electrons for both molecules can be defined individually using the `--chrg1 <INT>`, `--chrg2 <INT>`, `--uhf1 <INT>`, and `--uhf2 <INT>` flags.
 
 {% include warning.html content='Due to technical issues, docking in xtb version 6.7.1 may not work properly. It is recommended to use version 6.7.0 or a bleeding-edge version of xtb for this exercise.' %}
 
-As an example, dock the following molecules. Molecule A has a charge of +1, while molecule B has a charge of -1.
+As an example, dock the following molecules in THF solvent. Molecule A has a charge of +1, while molecule B has a charge of -1.
 
 <!-- Tab links -->
 <div class="tab card">
@@ -93,5 +96,3 @@ S         3.05359431305024    4.27861510795718    2.63234125421372
 {% include codecell.html content=struc_file_2 style="font-size:10px" %}
 </div>
 {% include defaulttab.html id="open-2" %}
-
-The best structure found is saved to `best.xyz`. Additionally, by default, the 15 best structures are written to the `final_structures.xyz` file. Both files can be visualized by opening them with a graphical program like Molden.

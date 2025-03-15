@@ -17,9 +17,11 @@ This method improves computational efficiency while ensuring the required accura
 
 To perform an ONIOM calculation with **xtb**, the first step is to define the inner region of the system.  
 Use a molecular visualizer of your choice that can display atom numbers and identify the appropriate inner region of the DALTES MOC.  
-The program accepts the inner region as a CLI argument in the form of a comma-separated list of atom indices (e.g., *1-2,10,23-28*).
+The program accepts the inner region as a command-line argument. It is defined simply by the atom indicies in the form of a comma-separated list (e.g., *1-2,10,23-28*).
 
-{% include note.html content='The boundaries resulting from the artificial system decomposition should be carefully defined. As a general rule, bonds that are higher than single bonds are not a good choice for defining the inner region.' %}
+{% include tip.html content='For larger systems, you can use the [**PyMOL**](https://www.pymol.org/) GUI, which can automatically generate a list of atom indices from the selected atom group.' %}
+
+{% include note.html content='The boundaries resulting from the artificial system decomposition should be carefully defined. As a general rule, the inner region should be chosen that either no bonds (multiple molecules) or single bonds are cut, but no double, or triple bonds.' %}
 
  <!-- Tab links -->
 <div class="tab card">
@@ -465,8 +467,6 @@ Rh     20.220079    6.344266   -1.492652
 {% endcapture %}
 {% include codecell.html content=struc_xyz %}
 </div>
-
-{% include tip.html content='For larger systems, you can use the [**PyMOL**](https://www.pymol.org/) GUI, which can automatically generate a list of atom indices from the selected atom group.' %}
 
 ## Dry-Run
 

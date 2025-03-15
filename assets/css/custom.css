@@ -57,3 +57,30 @@ a[href^="https://doi."]:after, a[href^="https://xtb-docs."]:after {
   visibility: visible;
   opacity: 0.9;
 } 
+
+/* Container for search bar and links */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;  /* Allow content to wrap */
+}
+
+/* Flex container for the images */
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spread images across the row */
+}
+
+/* Each image item */
+.image-item {
+  width: 48%; /* Two images side by side with some space between them */
+  margin-bottom: 10px; /* Add space between rows */
+}
+
+.image-item img {
+  width: 100%; /* Make sure images fill their container */
+  height: auto; /* Maintain aspect ratio */
+}

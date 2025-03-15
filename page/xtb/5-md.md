@@ -39,7 +39,7 @@ $end
 Further keywords and explanations can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/md.html#parameters).  
 {% include note.html content='If the MD simulation becomes unstable, you can try lowering the time step or increasing the hydrogen mass. This is particularly recommended when using GFN-FF.' %}  
 Try running an MD simulation using GFN-FF with the ALPB(water) solvation model and default settings.  
-Next, run another MD simulation with the same settings but adjust the time step to 2.0 fs by providing an input file. For time efficiency, reduce the MD length to 20 ps this time.  
+Next, run another MD simulation with the same settings but adjust the time step to 2.0 fs by providing an input file. For time efficiency, reduce the MD length to 20 ps this time, but please be aware that this is by far not sufficient for production runs.
 
 <!-- Tab links -->
 <div class="tab card">
@@ -152,7 +152,6 @@ Next, run another MD simulation with the same settings but adjust the time step 
 You can view the resulting trajectory by opening the **xtb.trj** file with tools like **Molden**.  
 With **xtb**, you can also apply additional potentials during MD simulations to drive the molecule over energy barriers and prevent sampling the same structure repeatedly. These types of simulations are known as Meta-Dynamics (MTD) simulations and can be very useful for exploring the potential energy surface (PES) of a molecule.  
 To activate MTD simulations, add the following block to your **xtb** input file:  
-
 
 ```bash
 $metadyn

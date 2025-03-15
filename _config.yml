@@ -1,5 +1,5 @@
-title: xtb workshop
-description: xtb workshop
+title: Grimme-Lab Workshop
+description: Grimme-Lab Workshop
 remote_theme: "just-the-docs/just-the-docs"
 
 
@@ -50,9 +50,9 @@ heading_anchors: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "xtb on GitHub":
-    - "//github.com/grimme-lab/xtb"
-  "xtb Documentation":
+  "Grimme-Lab on GitHub":
+    - "https://github.com/grimme-lab"
+  "Grimme-Lab Documentation":
     - "//xtb-docs.readthedocs.io/en/latest/"
 
 nav_sort: case_sensitive # Capital letters sorted before lowercase

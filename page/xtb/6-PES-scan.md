@@ -15,18 +15,18 @@ Here, we will describe how to perform such scans.
 As an example, we will conduct a constrained distance scan to disentangle a molecular muscle.
 
 ## Constrained Scan
-In addition to the **molecularmuscle.xyz** structure file, you will need two additional input files: the `xcontrol` instruction set and a `.CHRG` file to define the total charge.  
+In addition to the **molecularmuscle.xyz** structure file, you will need two additional input files: the `xtb.inp` input file and a `.CHRG` file to define the total charge.  
 
  <!-- Tab links -->
 <div class="tab card">
   <button class="tablinks tab-id-1" onclick="openTabId(event, 'command', 'tab-id-1')" id="defaultOpen">{{ site.data.icons.code }} <code>command</code></button>
   <button class="tablinks tab-id-1" onclick="openTabId(event, 'struc', 'tab-id-1')">{{ site.data.icons.codefile }}  <code>molecularmuscle.xyz</code></button>
-  <button class="tablinks tab-id-1" onclick="openTabId(event, 'xcontrol', 'tab-id-1')">{{ site.data.icons.codefile }}  <code>xcontrol</code></button>
+  <button class="tablinks tab-id-1" onclick="openTabId(event, 'xcontrol', 'tab-id-1')">{{ site.data.icons.codefile }}  <code>xtb.inp</code></button>
   <button class="tablinks tab-id-1" onclick="openTabId(event, 'output', 'tab-id-1')">{{ site.data.icons.checkfile }} <code>.CHRG</code></button>
 </div>
 <!-- Tab content -->
 <div id="command" class="tabcontent tab-id-1" style="text-align:justify">
-{% include command.html cmd="xtb molecularmuscle.xyz -I xcontrol --gfnff --opt --alpb dmso > scan.out &" %}
+{% include command.html cmd="xtb molecularmuscle.xyz -I xtb.inp --gfnff --opt --alpb dmso > scan.out &" %}
 <span markdown="span">
 </span>
 </div>

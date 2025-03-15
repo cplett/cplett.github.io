@@ -132,4 +132,6 @@ H    9.3287  1.6068   -3.0670
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
+{% include warning.html content='While spGFN is much more accurate than the GFN methods, it has usually still larger errors than more accurate DFT/WFT methods. Thus, it a very good tool for screening, but should not be used if highly accurat results are desired.' %}
+
 More information can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/spgfn.html) and in the [publication](https://onlinelibrary.wiley.com/doi/10.1002/jcc.27185).

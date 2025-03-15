@@ -141,8 +141,8 @@ The predicted energy difference between these two conformers, as calculated usin
 
 A way to improve the performance of GFN-FF for conformer ranking is [ConfRank](https://pubs.acs.org/doi/10.1021/acs.jcim.4c01524).'%}  
 
-You can also adjust the accuracy of the self-consistent charge (SCC) convergence in **xtb** using the `--acc <REAL>` flag and set the maximum number of iterations with `--iterations <INTEGER>`. The latter is particularly useful when the wavefunction does not converge within the default 250 cycles, which may occur in very large or electronically complex systems.  
+For the energy calculations, **xtb** tries to converge the atomic charges of the molecule, which is equal to converging a Wavefunction. The behaviour of this self-consistent charge (SCC) convergence can be adjusted, *e.g.*, the `--acc <REAL>` flag changes the accuracy and the `--iterations <INTEGER>` lets you change the maximum number of SCC cycles. The latter is particularly useful when the wavefunction does not converge within the default 250 cycles, which may occur in very large or electronically complex systems.  
 
-However, if SCC convergence fails, it should first be checked manually before increasing the number of iterations, as some systems may not converge at all.  
+However, if converging the Wavefunction fails, it should first be checked manually before increasing the number of iterations, as some systems may not converge at all.
 
-More details on adjusting SCC parameters can be found in the [xtb manual](https://xtb-docs.readthedocs.io/en/latest/sp.html#accuracy-and-iterations).  
+More details on adjusting convergence parameters can be found in the [xtb manual](https://xtb-docs.readthedocs.io/en/latest/sp.html#accuracy-and-iterations).  

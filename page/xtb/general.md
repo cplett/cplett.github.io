@@ -46,6 +46,8 @@ To perform specific calculations or access different functionalities, you can us
 
 ## Charges and Unpaired Electrons
 **xtb**  supports charged molecules as well as molecules with unpaired electrons. You can define charges and the number of unpaired electrons either via command-line flags (`--chrg <INT>` and `--uhf <INT>`) or by placing a *.CHRG* or *.UHF* file in the working directory, each containing only the respective value.
+{% include note.html content='Be aware that in **xtb**, you provide the number of unpaired electrons, not the multiplicits as in other QM codes.'%}
+
 
 ## Available Methods
 **xtb**upports the GFN2-xTB, GFN1-xTB, and GFN-FF methods. By default, it uses GFN2-xTB, but you can specify a different method using the corresponding flag:
@@ -101,3 +103,7 @@ $end
 
 This constrains atoms 1, 2, 3, 11, and 12 relative to each other, as well as all carbon and nitrogen atoms.
 If constraints are not sufficient, you can use the $fix block to completely fix atomic positions in Cartesian space. However, this only applies to geometry optimizations and does not work for MD simulations. More details can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/xcontrol.html).
+
+## Restarting a **xtb** calculation
+
+For every calculation, a `xtbrestart` file is written. When this file is in the directory when starting a new **xtb** calculation, it will automatically be read and **xtb** tries to use the information to restart a calculation, *e.g.*, a converged Wavefunction.

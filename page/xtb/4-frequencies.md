@@ -19,7 +19,28 @@ Alternatively, the `--ohess` flag can be used to directly perform an optimizatio
 
 {% include warning.html content='Computing Hessians on structures that are not fully optimized, or on transition states, will have no physical meaning. This should generally be avoided when computing thermocontributions or spectra.'%}  
 
-At the end of the calculation, the output will include the frequencies, total free energy, and total thermocorrection (`G(RRHO) contrib.`).  
+At the end of the calculation, the output will include the frequencies, total free energy, and the total thermocorrection (`G(RRHO) contrib.`) at the chosen temperature (default 298.15 K):
+
+```bash
+         :::::::::::::::::::::::::::::::::::::::::::::::::::::
+         ::                  THERMODYNAMIC                  ::
+         :::::::::::::::::::::::::::::::::::::::::::::::::::::
+         :: total free energy         -97.955199823991 Eh   ::
+         ::.................................................::
+         :: total energy              -98.337562149475 Eh   ::
+         :: zero point energy           0.443793453483 Eh   ::
+         :: G(RRHO) w/o ZPVE           -0.061431127998 Eh   ::
+         :: G(RRHO) contrib.            0.382362325484 Eh   ::
+         :::::::::::::::::::::::::::::::::::::::::::::::::::::
+```
+
+To adjust the temperature, an additional input file can be provided. Even multiple temperatures are possible, *e.g.*:
+
+```bash
+$thermo
+    temp=150.0,200.0,250.0,273.15,298.15
+$end
+```
 
 Additionally, a `vibspectrum` file will be generated, containing the IR-active modes with their respective intensities. A Gaussian output file (`g98.out`) will also be created, which can be opened with tools like **Molden** to directly view the vibrational levels.  
 
@@ -110,3 +131,5 @@ Another feature of **xtb** is the Single-Point Hessian (SPH) approach, which all
 This can be useful, for example, to compute thermocorrections for a DFT-optimized structure, saving computational time compared to a more expensive DFT Hessian calculation.  
 
 To activate the SPH approach, use the `--bhess` flag, as described in the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations). For further details on the theoretical concept, refer to the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).  
+
+{% include warning.html content='SPH is often not suitable for transition states, as the imaginary mode will also be lost.'%}

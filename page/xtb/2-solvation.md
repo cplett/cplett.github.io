@@ -49,6 +49,8 @@ Parameterized solvent and method combinations are:
 
 An up-to-date list of available solvents can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/gbsa.html).  
 
+{% include warning.html content='If you want to compute a solvent that is not yet parameterized in **xtb**, use a solvent with a similar dielectric constant that is parameterized. They can be found from several sources, *e.g.* [here](https://depts.washington.edu/eooptic/linkfiles/dielectric_chart%5B1%5D.pdf). Never do a gas phase computation in such cases.' %}
+
 In principle, both solvent models perform similarly but do not reach the accuracy of more advanced and computationally expensive models like COSMO-RS or SMD.  
 
 GBSA and ALPB treat the solvent as an electrostatic continuum that is self-consistently relaxed during the SCC, directly influencing the wavefunction. Non-electrostatic contributions are added after SCC convergence.  
