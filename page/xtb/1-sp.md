@@ -135,7 +135,7 @@ H    -2.0910510    2.0001870   -1.7985545
 </div>
 {% include defaulttab.html id="open-2" %}
 
-The predicted energy difference between these two conformers, as calculated using CCSD(T), is 1.4 kcal/mol.  
+The predicted energy difference between these two conformers, as calculated using CCSD(T), is that conf1 is 1.4 kcal/mol higher in energy than conf2.  
 
 {% include note.html content='GFN-FF and GFN2-xTB may exhibit larger errors in conformational energies for electronically complex systems and might even fail to identify the lowest-energy conformer. In such cases, DFT refinement with methods like **CENSO** is recommended for more reliable predictions.  
 

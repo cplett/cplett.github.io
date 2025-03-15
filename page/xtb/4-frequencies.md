@@ -42,7 +42,7 @@ $thermo
 $end
 ```
 
-Additionally, a `vibspectrum` file will be generated, containing the IR-active modes with their respective intensities. A Gaussian output file (`g98.out`) will also be created, which can be opened with tools like **Molden** to directly view the vibrational levels.  
+Additionally, a `vibspectrum` file will be generated, containing the IR-active modes with their respective intensities. A Gaussian output file (`g98.out`) will also be created, which can be opened with tools like **Molden** to directly view the vibrational levels. By activating the `Norm. Mode` in the top right of the Molden control window, a list of frequencies is shown that can be selected to display the respective vibrational mode. 
 
 These vibrational levels can be used to identify transition states or to confirm that the geometry has converged to a minimum.  
 
