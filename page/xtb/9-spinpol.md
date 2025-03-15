@@ -9,13 +9,14 @@ permalink: page/xtb/spinpol
 
 # Spin Polarization
 
-The **xtb** methods inherently can not differentiate properly between high-spin and low-spin states, this shortcoming is corrected with the presented methods termed spGFNn-xTB. It can be invoked via the **tblite** and allows a fast screening of spin states:
+The **xtb** methods by default cannot properly differentiate between high-spin and low-spin states. This limitation is addressed with the spGFNn-xTB methods, which can be invoked using **tblite**. This approach allows for fast screening of spin states:
+
 
 ```bash
 xtb struc.xyz --spinpol --tblite --uhf <Integer>
 ```
 
-As an example, find the lowest spin state of the following Iron-complex in gas-phase with GFN2-xTB and the spGFN2-xTB. Experimentally, a multiplicity of 7 (six unpaired electrons) was found to yield the most stable state.
+As an example, find the lowest spin state of the following iron complex in the gas phase using GFN2-xTB and spGFN2-xTB. Experimentally, a multiplicity of 7 (six unpaired electrons) was found to yield the most stable state.
 
 <!-- Tab links -->
 <div class="tab card">

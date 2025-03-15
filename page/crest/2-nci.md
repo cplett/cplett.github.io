@@ -15,8 +15,8 @@ For systems with non-covalently interacting molecules, **CREST** provides a spec
 crest struc.xyz --nci
 ```
 
-This will apply a wall potential to prevent dissociation of the molecules upon the MTD and MD simulations.
+This will apply a wall potential to prevent the dissociation of molecules during MTD and MD simulations.
 
-{% include warning.html content='Especially for systems containing non-bonded molecules, the conformer generation is complicated and the results of a single **crest** run is likely not sufficient to find the best conformer'%}
+{% include warning.html content='Especially for systems containing non-bonded molecules, conformer generation can be complex, and the results of a single **crest** run are likely insufficient to find the optimal conformer.' %}
 
-For systems containing multiple molecules, it is highly recommended to do multiple **crest** runs on the same system and to combine the results. Sorting the combined ensemble can also be done with **crest** as explained in the [additional features chapter](page/crest/addition). Further, it can be beneficial to try different settings, *e.g.*, to adjust the temperature of the MD runs (`--tnmd <INT>) or increase the number of searching cycles (`--mrest <INT>). Further possibilities to tune the sampling behaviour are listed in the [documentation](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html#conformational-search-settings).
+For systems with multiple molecules, it is highly recommended to run **crest** multiple times on the same system and combine the results. You can also sort the combined ensemble using **crest**, as explained in the [additional features chapter](page/crest/addition). Additionally, it may be helpful to try different settings, such as adjusting the temperature of the MD runs (`--tnmd <INT>`) or increasing the number of search cycles (`--mrest <INT>`). Further options for tuning the sampling behavior can be found in the [documentation](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html#conformational-search-settings).

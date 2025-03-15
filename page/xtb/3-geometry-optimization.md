@@ -8,18 +8,19 @@ has_children: false
 permalink: page/xtb/GeoOpt
 ---
 
-# Geometry Optimizations
+# Geometry Optimizations  
 
-One of the prime applications of **xtb** are geometry optimizations, which can be used for screening applications as well as the optimization of structures too large for DFT methods.
-A geometry optimization can be requested with
+One of the primary applications of **xtb** is geometry optimization. It is useful for screening applications as well as optimizing structures that are too large for DFT methods.  
+A geometry optimization can be performed using:  
+
 
 ```bash
 xtb struc.xyz --opt
 ```
 
-The result will be an `xtbopt.xyz` file containing the optimized structure as well as the `xtbopt.log` file containing the trajectory of the optimization.
+The result will be an `xtbopt.xyz` file containing the optimized structure, along with an `xtbopt.log` file that records the optimization trajectory.  
 
-As a simple example, optimize the antibiotics Erythromycin with GFN2-xTB in gas-phase and in water and compare the structures with, *e.g.*, `chimera opt1.xyz opt2.xyz`.
+As a simple example, optimize the antibiotic **Erythromycin** using GFN2-xTB both in the gas phase and in water. Then, compare the structures using, for example, `chimera opt1.xyz opt2.xyz`.  
 
 <!-- Tab links -->
 <div class="tab card">
@@ -157,8 +158,7 @@ H            7.61690000000000       -4.89310000000000       -2.60050000000000
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-You can check the structural changes during the geometry optimization by visualizing the `xtbopt.log` file that can directly be opened with, *e.g.*, `molden xtbopt.log`.
-
-The maximum number of geometry optimization cycles is determined automatically at runtime, but it is maximum 10000 cycles. This can be adjusted by the `--cycles <INTEGER>` keyword.
-The treshold for converging the geometry optimization can be set by providing a level after the optimization flag (`--opt <level>`).
-More information and the possible optimization levels with respective defaults can be found at the [documentation](https://xtb-docs.readthedocs.io/en/latest/optimization.html).
+You can monitor the structural changes during the geometry optimization by visualizing the `xtbopt.log` file, which can be opened directly with, for example, `molden xtbopt.log`.  
+The maximum number of geometry optimization cycles is determined automatically at runtime, with a maximum of 10,000 cycles. This limit can be adjusted using the `--cycles <INTEGER>` flag.  
+The threshold for converging the geometry optimization can be set by providing a level after the optimization flag (`--opt <level>`).  
+For more information on the available optimization levels and their default values, refer to the [documentation](https://xtb-docs.readthedocs.io/en/latest/optimization.html).  

@@ -11,15 +11,17 @@ permalink: /page/xtb/installation
 
 ## General Considerations
 
-The xtb software is open-source and available under the LGPL 3.0 license on the GitHub platform. This guide provides a brief summary of the existing [guideline](https://xtb-docs.readthedocs.io/en/latest/setup.html). Some features are available only for the newer version of xtb (`6.7.0`).
-In case of any issues, you can always refer to the full documentation for further details or open an issue on GitHub.
+The **xtb** software is open-source and available under the LGPL 3.0 license on GitHub. This guide provides a brief summary of the official [installation guide](https://xtb-docs.readthedocs.io/en/latest/setup.html). Some features are only available in newer versions of **xtb** (e.g., `6.7.0`).
 
-{% include warning.html content="Primary operating system (OS) for the development and application of **xtb** is Linux. While it is possible to install **xtb** on Windows and macOS, support for these platforms may be more limited." %}
+If you encounter any issues, refer to the full documentation or open an issue on GitHub for support.
 
+{% include warning.html content="The primary operating system (OS) for developing and using **xtb** is Linux. While installation on Windows and macOS is possible, support for these platforms may be more limited." %}
 
-## Straighforward Installation
-The most straightforward way to install xtb is by downloading the [precompiled binaries](https://github.com/grimme-lab/xtb/releases). You can also get a bleeding-edge version of the program.
-After downloading the appropriate version, extract it, make it executable, and add it to your `PATH` variable for easy use:
+## Easy Installation
+
+The simplest way to install **xtb** is by downloading the [precompiled binaries](https://github.com/grimme-lab/xtb/releases). You can also access a bleeding-edge version of the program.
+
+After downloading the appropriate version, extract the files, make them executable, and add the program to your `PATH` variable for easy access:
 
 ```bash
 tar -xvf xtb*.tar.xz
@@ -27,8 +29,8 @@ chmod +x ./xtb-dist/bin/xtb
 export PATH=$PWD/xtb-dist/bin:$PATH
 ```
 
-Alternatively, you can copy the **xtb** binary to a directory of your liking, **e.g.**, your bin.
-To verify that the executable is correctly linked, use:
+Alternatively, you can copy the **xtb** binary to a directory of your choice, **e.g.,** your `bin` folder.  
+To verify that the executable is correctly linked, use:  
 
 ```bash
 which xtb
@@ -41,10 +43,10 @@ xtb --version
 {% include tip.html content='You can add the full path to your **xtb** executable to the Bash shell configuration file (~/.bashrc) to automatically load **xtb** in new sessions.'%}
 
 
-## Compilation 
-A more advanced approach is to compile xtb from the source code. Native compilation has certain advantages over precompiled binaries, such as producing a system-tailored binary and allowing modifications to the software in place.
+## Compilation  
+A more advanced approach is to compile **xtb** from source. Native compilation offers several advantages over precompiled binaries, such as generating a system-optimized binary and enabling in-place modifications to the software.  
 
-Here, we follow a minimalistic build using our default toolchain: the `meson` build system and the `ifort`/`icc` compilers.
+This guide follows a minimalistic build process using the default toolchain: the `meson` build system and the `ifort`/`icc` compilers.  
 
 First step is to clone the official GitHub repository via:
 ```bash

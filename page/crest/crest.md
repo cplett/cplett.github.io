@@ -9,11 +9,11 @@ toc: false
 # {{page.title}}
 {: .no_toc}
 
-Semi-empirical methods are often employed to explore and efficiently sample the conformational space of molecules.
-The Conformer-Rotamer Ensemble Sampling Tool (CREST) uses the GFN methods to generate ensembles and find low-energy structures.
-Besides conformational search algorithms, CREST provides a variety of workflows of which the most important are coverd by this workshop.
+Semi-empirical methods are frequently used to explore and efficiently sample the conformational space of molecules. The Conformer-Rotamer Ensemble Sampling Tool (CREST) leverages the GFN methods to generate ensembles and identify low-energy structures.
 
-For more information about CREST, check out the [docs](https://crest-lab.github.io/crest-docs/).
+In addition to conformational search algorithms, CREST offers various workflows, with the most important ones covered in this workshop.
+
+For more details about CREST, visit the [documentation](https://crest-lab.github.io/crest-docs/).
 
 ## Literature
 

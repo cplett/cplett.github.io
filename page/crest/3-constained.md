@@ -9,27 +9,28 @@ permalink: page/crest/constraints
 
 # Constraints
 
-For electronically more complex systems like transition metal complexes, and in case you want to preserve certain structure motifs, *e.g.* a transition state, **CREST** provides the possibility to contrain certain bonds, dihedral, and torsion angles.
-For this, a file with similar format to the **xtb** input can be provided with the **--cinp** flag:
+For more electronically complex systems, such as transition metal complexes, or if you wish to preserve specific structural motifs (e.g., a transition state), **CREST** offers the option to constrain certain bonds, dihedrals, and torsion angles. 
+
+To do this, you can provide a file with a format similar to the **xtb** input using the **--cinp** flag:
 
 ```bash
 crest struc.xyz --cinp <FILE>
 ```
 
-All possible contraints are listed in the [documentation](https://xtb-docs.readthedocs.io/en/latest/xcontrol.html#fixing-constraining-and-confining).
+All possible constraints are listed in the [documentation](https://xtb-docs.readthedocs.io/en/latest/xcontrol.html#fixing-constraining-and-confining).
 
-{% include note.html content='The exact fixing of atoms is currently not possible due to instabilities during the MD and MTD simulations.'%}
+{% include note.html content='Exact atom fixing is currently not possible due to instabilities during MD and MTD simulations.' %}
 
-To easify the manual definition of constraints, **CREST** provides the possibility to automatically generate the required input file. For this, the **--constrain <atomlist>** keyword can be used, where **<atomlist>** defines the index of the atoms to be contrained, *e.g.*:
+To simplify the manual definition of constraints, **CREST** offers the option to automatically generate the required input file. For this, the **--constrain <atomlist>** keyword can be used, where **<atomlist>** defines the indices of the atoms to be constrained, *e.g.*:
 
 ```bash
 crest struc.xyz --contrain 1-5,8,12
 ```
 
-This results in a **.xcontrol.sample** file that can be renamed and used as input for the **CREST** run.
-Further, **CREST** provides the possibility to contrain certain interaction motifs automatically. For example, **--cmetal** contrains the bonds of a metal with all ligands to prevent unwanted behaviour during the MD and MTD simulations. Further, information can be found in the [documentation](https://crest-lab.github.io/crest-docs/page/examples/example_4.html).
+This results in a **.xcontrol.sample** file, which can be renamed and used as input for the **CREST** run. 
+Additionally, **CREST** provides the option to automatically constrain certain interaction motifs. For example, **--cmetal** constrains the bonds between a metal and all ligands to prevent unwanted behavior during MD and MTD simulations. More information can be found in the [documentation](https://crest-lab.github.io/crest-docs/page/examples/example_4.html).
 
-As an example, consider the transition state of the oxidative addition of benzene to a Ir catalyst:
+As an example, consider the transition state of the oxidative addition of benzene to an Ir catalyst:
 
 <!-- Tab links -->
 <div class="tab card">
@@ -109,8 +110,7 @@ H -1.86324 -0.09332 -2.73789
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-Search conformers of the transition state by constraining the relevant atoms.
-To do so, have a look at the structure with, *e.g.*, molden, set the labels and atom numbers and check the numbers of the atoms.
-Call crest with the `--contrain <atom list>` flag and replace `<atom list>` with the respective atom numbers.
-Raname the resulting `.xcontrol.sample` file to a name of your liking, *e.g.*, `xtb.inp` and start **crest** again providing this input file.
-Verify that `crest_best.xyz` is a reasonable transition state similar to [before](page/xtb/Frequencies).
+Search for conformers of the transition state by constraining the relevant atoms. 
+To do this, examine the structure using software like Molden, set the labels and atom numbers, and take note of the atom numbers. Then, call **CREST** with the `--constrain <atom list>` flag, replacing `<atom list>` with the appropriate atom numbers.
+Rename the resulting `.xcontrol.sample` file to a name of your choice, such as `xtb.inp`, and start **CREST** again, providing this input file. 
+Finally, verify that `crest_best.xyz` represents a reasonable transition state, similar to what was shown [before](page/xtb/Frequencies).

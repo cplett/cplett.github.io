@@ -8,18 +8,18 @@ permalink: page/xtb/oniom
 ---
 
 # {{ page.title }}
-The ONIOM scheme is a multiscale approach designed to efficiently handle large systems using a divide-and-conquer strategy.
-The general idea is to partition the system into different subregions—typically an inner and an outer region—and then compute them at different levels of theory.
-This method enhances computational efficiency while maintaining the required accuracy in the region of interest (e.g., the ligand pocket in proteins).
+The ONIOM scheme is a multiscale approach designed to efficiently handle large systems by using a divide-and-conquer strategy.  
+The general idea is to partition the system into different subregions—typically an inner and an outer region—and compute them at different levels of theory.  
+This method improves computational efficiency while ensuring the required accuracy in the region of interest (e.g., the ligand pocket in proteins).  
 
 
 ## Definition of Inner Region
 
-To perform an ONIOM calculation with xtb, the first step is to define the inner region of the system.
-Please use a molecular visualizer of your choice that can display atom numbers and note an appropriate inner region of the DALTES MOC. 
+To perform an ONIOM calculation with **xtb**, the first step is to define the inner region of the system.  
+Use a molecular visualizer of your choice that can display atom numbers and identify the appropriate inner region of the DALTES MOC.  
 The program accepts the inner region as a CLI argument in the form of a comma-separated list of atom indices (e.g., *1-2,10,23-28*).
 
-{% include note.html content='The boundaries arising from the artificial system decomposition should be properly defined. As the general rule the bonds that higher than single bonds are not a good choice.'%}
+{% include note.html content='The boundaries resulting from the artificial system decomposition should be carefully defined. As a general rule, bonds that are higher than single bonds are not a good choice for defining the inner region.' %}
 
  <!-- Tab links -->
 <div class="tab card">
@@ -466,21 +466,16 @@ Rh     20.220079    6.344266   -1.492652
 {% include codecell.html content=struc_xyz %}
 </div>
 
-{% include tip.html content='For larger systems, one can use the [**PyMOL**](https://www.pymol.org/) GUI, which can automatically generate a list of atom indices from the selected atom group.'%}
-
+{% include tip.html content='For larger systems, you can use the [**PyMOL**](https://www.pymol.org/) GUI, which can automatically generate a list of atom indices from the selected atom group.' %}
 
 ## Dry-Run
-When defining the inner region, it is good practice to perform a dry-run with xtb to check whether the specified region is appropriate from a topological perspective using the **--cut** option:
+
+When defining the inner region, it's a good practice to perform a dry-run with **xtb** to check if the specified region is appropriate from a topological perspective. This can be done using the **--cut** option:
+
 ```bash
 xtb daltes.xyz <inner_region_list> gfn2:gfnff --cut > cut.out
 xtb daltes.xyz <inner_region_list> gfn2:gfn2 --cut > cut.out
-```
-The ONIOM methods are defined as **high:low**. In our case, we use **gfn2:gfn2** to verify whether the GFN2 wavefunction analysis supports the chosen boundary. Alternatively, one can use **gfn2:gfnff**, but note that the force field topology may overlook important electronic fine details due to the lack of explicit electron treatment.
-{% include note.html content='There are interfaces to **ORCA** and **TURBOMOLE** packages that allow for a higher-level treatment of both the inner and outer regions.'%}
 
-## ONIOM Calculation
-
-Now that you have defined the inner region and performed a sanity check, proceed with running the ONIOM geometry optimization on the DALTES MOC:
 <!-- Tab links -->
 <div class="tab card">
   <button class="tablinks tab-id-5-2" onclick="openTabId(event, 'command-5-2', 'tab-id-5-2')" id="open-5-2">{{ site.data.icons.code }} <code>command</code></button>
@@ -504,7 +499,9 @@ $end
 </div>
 {% include defaulttab.html id="open-5-2" %}
 
-After the optimization succeeds, you can examine the different `*.log` and `*.xyz` files.
-In this case, we are constraining the total charges (via **--chrg**) of the inner:outer regions to 0:0.
-Try running the calculation without this constraint and observe how the results change.
-In addition, you can try to increase/decrease inner region size (e.g., take more metal nodes, or include organic linkers).
+After the optimization is complete, you can examine the different `*.log` and `*.xyz` files.
+
+In this case, we are constraining the total charges (via `--chrg`) of the inner:outer regions to 0:0.  
+Try running the calculation without this constraint and observe how the results change.  
+Additionally, you can experiment with increasing or decreasing the inner region size (e.g., by including more metal nodes or adding organic linkers).  
+

@@ -11,8 +11,9 @@ permalink: page/crest/crest
 
 ## Protonation
 
-Our model system will be a dipeptide consisting of alanin and glycin (Ala-Gly).
-The protonation screening can be requested with:
+Our model system will be a dipeptide consisting of alanine and glycine (Ala-Gly). 
+
+Protonation screening can be requested with:
 
 <!-- Tab links -->
 <div class="tab card">
@@ -65,15 +66,14 @@ H     3.572730    -0.688405    -1.154998
 </div>
 {% include defaulttab.html id="open-5-1" %}
 
-This uses GFN2-xTB by default. All protomers found by CREST are stored in `protonated.xyz`.
+This uses GFN2-xTB by default. All protomers found by **CREST** are stored in `protonated.xyz`.
 
-Determine the energetic ordering.
-Does the lowest protomer align with chemical intuition?
-
+Determine the energetic ordering. Does the lowest protomer align with chemical intuition?
 
 ## Deprotonation
 
-Similar to the protonation, the deprotonation screenig for Ala-Gly can be invoked with:
+Similar to protonation, the deprotonation screening for Ala-Gly can be invoked with:
+
 
 <!-- Tab links -->
 <div class="tab card">
@@ -119,12 +119,12 @@ H     3.572730    -0.688405    -1.154998
 
 All possible structures are stored in `deprotonated.xyz`.
 
-Again, determine the energetic ordering and find the lowest structure.
-
+Once again, determine the energetic ordering and identify the lowest structure.
 
 ## Combining Protonation and Deprotonation
 
-CREST can combine the protonation and deprotonation screenings to find tautomers.
+**CREST** can combine the protonation and deprotonation screenings to find tautomers.
+
 
 <!-- Tab links -->
 <div class="tab card">
@@ -168,9 +168,9 @@ H     3.572730    -0.688405    -1.154998
 </div>
 {% include defaulttab.html id="open-5-3" %}
 
-Check out all the tautomers.
-Can you find the zwitterion?
-If not, why?
+Check all the tautomers. 
+Can you find the zwitterion? If not, why?
+
 
 <div class="tab card">
   <button class="tablinks tab-id-5-4 active" onclick="openTabId(event, 'question-5-1', 'tab-id-5-4')" id="open-5-4">{{ site.data.icons.question }} <strong>Question</strong></button>

@@ -8,18 +8,19 @@ has_children: false
 permalink: page/xtb/sp
 ---
 
-# Single-point Calcuations
+# Single-Point Calculations  
 
-The most basic feature of **xtb** is the computation of electronic energies. This is also done everytime, a **xtb** calculation is invoked.
-A single-point calculation can also explicitly be requested with
+The most fundamental feature of **xtb** is computing electronic energies. This calculation is performed automatically every time an **xtb** run is initiated.  
+However, you can explicitly request a single-point calculation using:  
 
 ```bash
 xtb struc.xyz --sp
 ```
 
-The electronic energy in Hartree is printed at the end of the output as `TOTAL ENERGY` along with the `GRADIENT NORM` and the `HOMO-LUMO GAP`.
+The electronic energy, given in Hartree, is printed at the end of the output as `TOTAL ENERGY`, along with the `GRADIENT NORM` and the `HOMO-LUMO GAP`.  
 
-Single-point calculations of xtb can, for example, be used to quickly identify reasonable conformers. As an example, identify the lowest-energy gas-phase conformer in terms of electronic energy of the following two examples with GFN-FF and GFN2-xTB. Compute their energy difference in kcal/mol.
+Single-point calculations in **xtb** can be useful for quickly identifying reasonable conformers. For example, you can determine the lowest-energy gas-phase conformer by comparing electronic energies.
+As an exercise, identify the lowest-energy conformer for the following two structures using both GFN-FF and GFN2-xTB. Then, compute their energy difference in kcal/mol.  
 
 {% include note.html content='1 Hartree = 627.503 kcal/mol.'%}
 
@@ -134,10 +135,14 @@ H    -2.0910510    2.0001870   -1.7985545
 </div>
 {% include defaulttab.html id="open-2" %}
 
-The predicted energy difference of those two conformers with CCSD(T) is 1.4 kcal/mol.
+The predicted energy difference between these two conformers, as calculated using CCSD(T), is 1.4 kcal/mol.  
 
-{% include note.html content='GFN-FF and also GFN2-xTB might yield larger errors in conformational energies for electronically more complex systems and might even fail to predict the energetically lowest conformer. In such cases, DFT refinment with, *e.g.*, **CENSO** is recommended for a reliable predictions.
-A way to improve the performance of GFN-FF for ranking conformers is [ConfRank](https://pubs.acs.org/doi/10.1021/acs.jcim.4c01524).'%}
+{% include note.html content='GFN-FF and GFN2-xTB may exhibit larger errors in conformational energies for electronically complex systems and might even fail to identify the lowest-energy conformer. In such cases, DFT refinement with methods like **CENSO** is recommended for more reliable predictions.  
 
-It is also possible to adjust the accuracy for the SCC convergence of xtb with `--acc <REAL>` and the maximum number of iterations with `--iterations <Integer>`. The latter is especially helpful if the wavefunction does not converge within the default of 250 cycles, *e.g.*, when very large and electronically complex systems are treated. However, if the SCC does not converge, it should be checked manually first before the number of iterations is increased as there might be systems that do not converge at all.
-More information on adjusting the SCC parameters can be found at the manual of [xtb](https://xtb-docs.readthedocs.io/en/latest/sp.html#accuracy-and-iterations).
+A way to improve the performance of GFN-FF for conformer ranking is [ConfRank](https://pubs.acs.org/doi/10.1021/acs.jcim.4c01524).'%}  
+
+You can also adjust the accuracy of the self-consistent charge (SCC) convergence in **xtb** using the `--acc <REAL>` flag and set the maximum number of iterations with `--iterations <INTEGER>`. The latter is particularly useful when the wavefunction does not converge within the default 250 cycles, which may occur in very large or electronically complex systems.  
+
+However, if SCC convergence fails, it should first be checked manually before increasing the number of iterations, as some systems may not converge at all.  
+
+More details on adjusting SCC parameters can be found in the [xtb manual](https://xtb-docs.readthedocs.io/en/latest/sp.html#accuracy-and-iterations).  

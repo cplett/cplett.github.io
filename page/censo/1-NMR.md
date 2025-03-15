@@ -9,23 +9,24 @@ permalink: page/censo/nmr
 
 # {{ page.title }}
 
-**CENSO** is not only capable of ensemble refinement, but also allows the automated computation of NMR spectra for a whole ensemble. As NMR is a structure sensitive property, this is a prime example for the importance of ensemble quality.
+**CENSO** is not only capable of ensemble refinement, but also allows the automated computation of NMR spectra for an entire ensemble. Since NMR is a structure-sensitive property, this is a prime example of the importance of ensemble quality.
 
-As an example, use **CENSO** to refine the ensemble you computed for histidine in the [respective crest ensemble](page/crest/ensemble).
+As an example, use **CENSO** to refine the ensemble you computed for histidine in the [respective CREST ensemble](page/crest/ensemble).
 
 {% include image.html file="l-histidine.png" alt="hist" max-width=400 %}
 
-{% include important.html content='This task requires some time to compute, approximately 2.5h on 4 cores (Intel(R) Xeon(R) CPU E3-1270 v5 @ 3.60GHz, not the fastest). Most of the time will be taken up by geometry optimizations, so if you expect this to take too long, consider skipping the geometry optimization step in CENSO (set run = False in the **optimization**-section in censo2rc histidine)'%}
+{% include important.html content='This task requires some time to compute, approximately 2.5 hours on 4 cores (Intel(R) Xeon(R) CPU E3-1270 v5 @ 3.60GHz, not the fastest). Most of the time will be spent on geometry optimizations, so if you expect this to take too long, consider skipping the geometry optimization step in CENSO (set run = False in the **optimization** section in censo2rc histidine)' %}
 
-##  Ensemble Refinement and Spectral Parameter Calculation
-{% include important.html content='For the next steps, the ORCA software is required.'%}
+## Ensemble Refinement and Spectral Parameter Calculation
 
-Next, you are going to refine the ensemble using DFT calculations.
-**crest** uses GFN2-xTB as the default method, which produces ensemble rankings that are not accurate enough for NMR calculations.
-Therefore, it is necessary to refine the initial ensemble.
-You can do this using CENSO, which is supposed to automate the process of ensemble refinement and property calculation.
-**Before starting your calculations, please configure the program paths in the provided configuration file.**
-You can define the number of cores for CENSO with **--maxcores**.
+{% include important.html content='For the next steps, the ORCA software is required.' %}
+
+Next, you will refine the ensemble using DFT calculations.  
+**CREST** uses GFN2-xTB as the default method, which produces ensemble rankings that are not accurate enough for NMR calculations. Therefore, it is necessary to refine the initial ensemble.  
+You can do this using **CENSO**, which automates the process of ensemble refinement and property calculation.
+
+**Before starting your calculations, please configure the program paths in the provided configuration file.**  
+You can define the number of cores for **CENSO** with **--maxcores**.
 
  <!-- Tab links -->
 <div class="tab card">
@@ -150,12 +151,10 @@ orcaversion =
 
 {% include defaulttab.html id="open-2" %}
 
-CENSO will write output for all parts in text-format, as well as in json-format (`.out` and `.json` files). 
-You will also find ensembles in xyz-format, as well as all files generated using the run in your working directory, sorted by section.
-\\
-In the printout of the program and in the `4_NMR.out` file you will find the ensemble--averaged NMR parameters.
-Sodium trimethylsilylpropanesulfonate (DSS) is used as the NMR standard, and the spectrum is recorded at a frequency of 600 MHz in aqueous solution.
-Compare the ensemble--averaged values and the values for the lowest conformer only to the provided experimental reference values below.
+CENSO will write output for all parts in text format, as well as in JSON format (`.out` and `.json` files). You will also find ensembles in XYZ format, along with all files generated during the run, organized by section in your working directory.  
+\\  
+In the program's printout and in the `4_NMR.out` file, you will find the ensemble-averaged NMR parameters. Sodium trimethylsilylpropanesulfonate (DSS) is used as the NMR standard, and the spectrum is recorded at a frequency of 600 MHz in aqueous solution.  
+Compare the ensemble-averaged values and the values for the lowest conformer only to the provided experimental reference values below.
 
 | δ (ppm) | Integral | Multiplet type | J (Hz) | Atom No. |
 | :---:   | :---:    | :---:          | :---:  | :---:    |

@@ -9,23 +9,23 @@ permalink: page/xtb/Frequencies
 
 # Frequency calculations
 
-With **xtb**, also hessian calculations can be done which is required for thermocorrections to free energies and to compute IR and Raman spectra. To perform a Hessian computation, the `--hess` flag can be used
+With **xtb**, you can also perform Hessian calculations, which are required for thermocorrections to free energies and for computing IR and Raman spectra. To run a Hessian calculation, use the `--hess` flag.  
 
 ```bash
 xtb struc.xyz --hess
 ```
 
+Alternatively, the `--ohess` flag can be used to directly perform an optimization followed by a Hessian calculation.  
 
-Alternatively, the `--ohess` flag directly performs an optimization with subsequent Hessian computation.
+{% include warning.html content='Computing Hessians on structures that are not fully optimized, or on transition states, will have no physical meaning. This should generally be avoided when computing thermocontributions or spectra.'%}  
 
-{% include warning.html content='Computing Hessians on not fully optimized structures or transition states will have no physical meaning and should generally not be used to compute thermocontributions or spectra.'%}
+At the end of the calculation, the output will include the frequencies, total free energy, and total thermocorrection (`G(RRHO) contrib.`).  
 
-At the end of the calculation, the printout will contain the frequencies, total free energy and total thermocorrection (`G(RRHO) contrib.`).
-Further, a `vibspectrum` file will be written containing the IR active modes with the respective intensities.
-Additionally, a gaussian output `g98.out` will be written, which can be opened with, *e.g.*, molden to directly look at the vibrational levels computed.
-These can be used to identify transition states or to confirm that the geometry converged into a minimum.
+Additionally, a `vibspectrum` file will be generated, containing the IR-active modes with their respective intensities. A Gaussian output file (`g98.out`) will also be created, which can be opened with tools like **Molden** to directly view the vibrational levels.  
 
-Check, if the provided structure is a minimum, a reasonable transtition state or an arbitrary point on the PES. Use GFN2-xTB with ALPB(THF). How does the spectrum look change when using GFN-FF with ALPB(THF) instead?
+These vibrational levels can be used to identify transition states or to confirm that the geometry has converged to a minimum.  
+
+To assess the provided structure, check whether it represents a minimum, a reasonable transition state, or an arbitrary point on the potential energy surface (PES). Use GFN2-xTB with ALPB(THF). Observe how the spectrum changes when switching to GFN-FF with ALPB(THF) instead.  
 
 <!-- Tab links -->
 <div class="tab card">
@@ -105,6 +105,8 @@ H -1.86324 -0.09332 -2.73789
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-Another functionality of **xtb** is the Single-Point Hessian (SPH) approach. This allows to compute reasonable Hessians on arbitrary structures.
-It can be used to, *e.g.*, compute the thermocorrections of a DFT optimized structure to save the computational time of a rather expensive DFT Hessian.
-To activate it, the `--bhess` flag is used as explained in the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations). Further information on the theoretical concept can be found in the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).
+Another feature of **xtb** is the Single-Point Hessian (SPH) approach, which allows the calculation of reasonable Hessians on arbitrary structures.  
+
+This can be useful, for example, to compute thermocorrections for a DFT-optimized structure, saving computational time compared to a more expensive DFT Hessian calculation.  
+
+To activate the SPH approach, use the `--bhess` flag, as described in the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations). For further details on the theoretical concept, refer to the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).  

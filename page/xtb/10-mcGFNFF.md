@@ -9,20 +9,20 @@ permalink: page/xtb/periodic
 
 # Periodic Calculations
 
-With **xtb** version 6.7.0 and above, the GFN-FF method supports periodic calculations via periodic boundary conditions. 
-Additionally, a special run mode (mcGFN-FF) with scaled non-covalent interactions (NCI) was introduced and is recommended for periodic systems.
-It can be used for a fast optimization of periodic systems, optionally without optimizating the cell parameters (*--nocellopt*).
-A periodic GFN-FF calculation is invoked similarly to a normal GFN-FF calculation, except for that the structure input file must contain information about the lattice. Therefore, only the Turbomole, Vasp’s POSCAR/CONTCAR, and genFormat file format can be used.
-A periodic optimization with mcGFN-FF can be done with
+Starting from **xtb** version 6.7.0, the GFN-FF method supports periodic calculations using periodic boundary conditions. Additionally, a special run mode called mcGFN-FF, which includes scaled non-covalent interactions (NCI), was introduced and is recommended for periodic systems. This mode can be used for a fast optimization of periodic systems, optionally without optimizing the cell parameters (*--nocellopt*).
+
+A periodic GFN-FF calculation is invoked similarly to a normal GFN-FF calculation, with the exception that the structure input file must contain lattice information. Therefore, only the Turbomole, Vasp’s POSCAR/CONTCAR, and genFormat file formats are supported.
+
+To perform a periodic optimization with mcGFN-FF, use the following command:
+
 
 ```bash
 xtb struc.coord --mcgfnff --opt
 ```
 
-The resulting structure can be found in `xtbopt.coord` including the optimized lattice parameters. A trajectory of the optimization is found in the `xtboptlog.cif` file.
+The resulting structure can be found in the `xtbopt.coord` file, which includes the optimized lattice parameters. A trajectory of the optimization is available in the `xtboptlog.cif` file.
 
-As an example, optimize the unit cell of benzene. To visualize the structure you can convert the Turbomole format to xyz with, *e.g.*, **mctc-convert**, and open it with a graphical program like molden.
-
+As an example, optimize the unit cell of benzene. To visualize the structure, you can convert the Turbomole format to xyz using a tool like **mctc-convert** and then open it with a graphical program such as Molden.
 
 <!-- Tab links -->
 <div class="tab card">

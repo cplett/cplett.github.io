@@ -9,8 +9,8 @@ permalink: page/xtb/Solvation
 
 # Implicit Solvent Models
 
-When modeling processes in solvation it is crucial to include solvent effects in any calculation. This has an important effect on energies, but also on geometries.
-In **xtb**, there exist two implicit solvent models, the GBSA and ALPB, that can easily be used in every calculation. They can be invoked by
+When modeling processes in solution, it is essential to account for solvent effects in calculations. Solvent interactions significantly influence not only energies but also molecular geometries.  
+In **xtb**, two implicit solvent models are available: **GBSA** and **ALPB**. These models can be easily applied to any calculation. They can be invoked using:  
 
 ```bash
 xtb struc.xyz --alpb <solvent>
@@ -47,10 +47,12 @@ Parameterized solvent and method combinations are:
 | Water (H₂O)  | x         | x         | x         | x         | x      |
 
 
-An up-to-date list can also be found at the [documentation](https://xtb-docs.readthedocs.io/en/latest/gbsa.html).
+An up-to-date list of available solvents can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/gbsa.html).  
 
-In principle, both solvent models perform similar, but do not reach the performance of more costly solvent models like COSMO-RS or SMD.
-GBSA and ALPB model an electrostatic continuum that is relaxed self-consistently during the SCC directly affecting the wavefunction. Non-electrostatic parts are added after the SCC convergence. 
-More information on the theoretical foundation and quality of ALPB and GBSA can be found in the [publication](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.1c00471).
+In principle, both solvent models perform similarly but do not reach the accuracy of more advanced and computationally expensive models like COSMO-RS or SMD.  
 
-{% include note.html content='Using a solvent model can help to converge SCC or geometry optimization steps in case no convergence is achieved in gas phase. The resulting wavefunction or structure can be used to get a good starting point for the gas-phase calculation.'%}
+GBSA and ALPB treat the solvent as an electrostatic continuum that is self-consistently relaxed during the SCC, directly influencing the wavefunction. Non-electrostatic contributions are added after SCC convergence.  
+
+More details on the theoretical background and accuracy of ALPB and GBSA can be found in this [publication](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.1c00471).  
+
+{% include note.html content='Using a solvent model can improve SCC or geometry optimization convergence when gas-phase calculations fail to converge. The resulting wavefunction or structure can serve as a good starting point for a gas-phase calculation.' %}

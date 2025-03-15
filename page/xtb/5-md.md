@@ -10,16 +10,17 @@ permalink: page/xtb/MD
 
 # Molecular Dynamics Simulations
 
-**xtb** can also be used to run molecular dynamics simulations.
-A MD with a previous optimization can be invoked with
+**xtb** can also be used to perform molecular dynamics (MD) simulations.  
+An MD simulation following a previous optimization can be initiated with:  
 
 ```bash
 xtb struc.xyz --omd
 ```
 
-{% include note.html content='A MD can also be started with the `--md` flag, but the input structure should be reasonable in this case. Otherwise, the MD might become unstable.'%}
+{% include note.html content='An MD simulation can also be started with the `--md` flag, but the input structure should be reasonable. Otherwise, the MD simulation may become unstable.' %}  
 
-To have detailed control over the MD, an **xtb** input file can be provided. The following example file contains the default settings that can be adjusted.
+To have more detailed control over the MD simulation, you can provide an **xtb** input file. The following example shows the default settings, which can be adjusted as needed.  
+
 
  ```bash
 $md
@@ -35,12 +36,10 @@ $md
 $end
 ```
 
-Further keywords and explanation can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/md.html#parameters).
-
-{% include note.html content='In case of instable MDs, you can try to lower the time step, or to increase the H mass. This is recommended especially when using GFN-FF.'%}
-
-Try to run an MD with GFN-FF and the ALPB(water) solvation model with default settings.
-Then, try to run another MD with the same settings, but adjust the time step to 2.0 fs by providing an input file. Due to time reasons, adjust also the MD length this time to 20 ps.
+Further keywords and explanations can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/md.html#parameters).  
+{% include note.html content='If the MD simulation becomes unstable, you can try lowering the time step or increasing the hydrogen mass. This is particularly recommended when using GFN-FF.' %}  
+Try running an MD simulation using GFN-FF with the ALPB(water) solvation model and default settings.  
+Next, run another MD simulation with the same settings but adjust the time step to 2.0 fs by providing an input file. For time efficiency, reduce the MD length to 20 ps this time.  
 
 <!-- Tab links -->
 <div class="tab card">
@@ -150,10 +149,10 @@ Then, try to run another MD with the same settings, but adjust the time step to 
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-You can have a look at the resulting trajectory by opening the **xtb.trj** file with, *e.g.*, molden.
+You can view the resulting trajectory by opening the **xtb.trj** file with tools like **Molden**.  
+With **xtb**, you can also apply additional potentials during MD simulations to drive the molecule over energy barriers and prevent sampling the same structure repeatedly. These types of simulations are known as Meta-Dynamics (MTD) simulations and can be very useful for exploring the potential energy surface (PES) of a molecule.  
+To activate MTD simulations, add the following block to your **xtb** input file:  
 
-With **xtb** you can also add potentials during the MD simulations to force the molecule to overcome barriers and to avoid sampling the same structure multiple times. These kind of simulations are called Meta-Dynamics (MTDs) simulations and can be very helpful for exploring the PES of a molecule.
-You can activate them by adding the following block to your **xtb** input file:
 
 ```bash
 $metadyn
@@ -163,6 +162,6 @@ $metadyn
 $end
 ```
 
-Perform a new MD simulation with the **xtb** input file you created before, but add a second block to it as shown above to activate the MTD simulation. Check the trajectory again and compare it to the normal MD simulation.
+Perform a new MD simulation using the **xtb** input file you created earlier, but add a second block to activate the MTD simulation as shown above. Check the resulting trajectory and compare it to the normal MD simulation.  
 
-More information about the technical aspects of MTDs can be found on the [documentation](https://xtb-docs.readthedocs.io/en/latest/mtd.html) and about the theoretical part in the [original publication](https://pubs.acs.org/doi/10.1021/acs.jctc.9b00143).
+For more information on the technical aspects of MTD simulations, refer to the [documentation](https://xtb-docs.readthedocs.io/en/latest/mtd.html). For the theoretical background, see the [original publication](https://pubs.acs.org/doi/10.1021/acs.jctc.9b00143).  
