@@ -58,9 +58,11 @@ Protonation screening can be requested with:
 crest struc.xyz --protonate
 ```
 
+All found structures will be stored in the `protonated.xyz` file.
+
 This uses GFN2-xTB by default. All protomers found by **CREST** are stored in `protonated.xyz`.
 
-Determine the energetic ordering. Does the lowest protomer align with chemical intuition?
+Compute the protomers for Ala-Gly and determine the energetic ordering. Does the lowest protomer align with chemical intuition?
 
 ## Deprotonation
 
@@ -69,9 +71,10 @@ Similar to protonation, the deprotonation screening for Ala-Gly can be invoked w
 ```bash
 crest struc.xyz --deprotonate
 ```
-All possible structures are stored in `deprotonated.xyz`.
+All found structures are stored in `deprotonated.xyz`.
 
-Once again, determine the energetic ordering and identify the lowest structure.
+Compute the protomers for Ala-Gly and determine the energetic ordering.
+
 
 ## Combining Protonation and Deprotonation
 
@@ -81,7 +84,8 @@ Once again, determine the energetic ordering and identify the lowest structure.
 crest struc.xyz --tautomerize
 ```
 
-Check all the tautomers. 
+The found tautomers will be stored at `tautomers.xyz`.
+Compute and check all the tautomers. 
 Can you find the zwitterion? If not, why?
 
 

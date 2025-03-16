@@ -20,11 +20,14 @@ This results in a file called `crest_best.xyz` containing the best conformer fou
 Many features of **xtb** can be used also with **crest**, for example, implicit solvation and the different GFN methods. The command line flags are similar to **xtb**, *e.g.,* `--alpb <solvent>` or `--gfnff`.  
 You can define the number of cores to use with the **-T** argument. All available flags are listed in the [documentation](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html).
 
-**crest** comes with mostly robust defaults. However, setting robust defaults covering the complete chemical space is not possible. Therefore, it might especially for NCI complexes be necessary to adjust these defaults. More on this is explained in the [respective chapter](page/crest/nci).
+**crest** comes with mostly robust defaults. However, setting robust defaults covering the complete chemical space is not possible. Therefore, it might especially for NCI complexes be necessary to adjust these defaults like the MD length (`--mdlen <REAL>`).
+To get a feeling on whether the settings are reasonable, the `--keepdir` flag can be used when starting a crest run. This will leave a `MDFILES` folder with different trajectories of the **crest** runs.
+Inspecting them with, *e.g.*, Molden can be used to check how the molecule behaves during the simulations.
+More on this is explained in the [respective chapter](page/crest/nci).
 
 {% include warning.html content='Per default, **crest** generates an ensemble with structures in a certain energy window, *e.g.*, for a conformer search per default 6 kcal/mol. Every conformer above this window will be discarded and is lost forever. Especially for electronically challenging systems, where the applied method, *e.g.*, GFN2-xTB, is expected to have larger errors, important conformers are lost and cannot be recovered by following ensemble refinements. Thus, it is very important to increase the energy window for such cases with the `--ewin <REAL>` flag.' %}
 
-As an example, compute the ensemble of histidine including implicit water solvation.
+As more simple example, compute the ensemble of histidine including implicit water solvation with the GFN-FF method.
 
 <!-- Tab links -->
 <div class="tab card">

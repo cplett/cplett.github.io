@@ -17,13 +17,17 @@ xtb dock mol1.xyz mol2.xyz
 ```
 
 The best structure found is saved to `best.xyz`. Additionally, by default, the 15 best structures are written to the `final_structures.xyz` file. Both files can be visualized by opening them with a graphical program like Molden.
-Additionally, the `best_after_gen.xyz` file contains the best structure found before GFN optimization.
+The `best_after_gen.xyz` file contains the best structure found before GFN optimization.
 
 Charges and the number of unpaired electrons for both molecules can be defined individually using the `--chrg1 <INT>`, `--chrg2 <INT>`, `--uhf1 <INT>`, and `--uhf2 <INT>` flags.
+Many standard **xtb** flags like the use of solvation as well as choosing different methods can be applied.
+Further, thresholds for the docking can be adjusted with an additional input file. More details on this are available at the [documentation](https://xtb-docs.readthedocs.io/en/latest/xtb_docking.html).
 
 {% include warning.html content='Due to technical issues, docking in xtb version 6.7.1 may not work properly. It is recommended to use version 6.7.0 or a bleeding-edge version of xtb for this exercise.' %}
 
 As an example, dock the following molecules in THF solvent. Molecule A has a charge of +1, while molecule B has a charge of -1.
+
+{% include note.html content='The calculation can be speed up by using the `--fast` flag.' %}
 
 <!-- Tab links -->
 <div class="tab card">
@@ -31,12 +35,12 @@ As an example, dock the following molecules in THF solvent. Molecule A has a cha
     class="tablinks tab-id-1"
     onclick="openTabId(event, 'struc-1', 'tab-id-1')"
     id="open-1">
-    {{ site.data.icons.codefile }} <code>molA.xyz</code>
+    {{ site.data.icons.codefile }} <code>mol1.xyz</code>
   </button>
   <button
     class="tablinks tab-id-1"
     onclick="openTabId(event, 'struc-2', 'tab-id-1')">
-    {{ site.data.icons.codefile }} <code>molB.xyz</code>
+    {{ site.data.icons.codefile }} <code>mol2.xyz</code>
   </button>
 </div>
 <!-- Tab content -->

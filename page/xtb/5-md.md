@@ -149,7 +149,7 @@ Next, run another MD simulation with the same settings but adjust the time step 
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-You can view the resulting trajectory by opening the **xtb.trj** file with tools like **Molden**.  
+You can view the resulting trajectory by opening the `xtb.trj` file with tools like **Molden**.  
 With **xtb**, you can also apply additional potentials during MD simulations to drive the molecule over energy barriers and prevent sampling the same structure repeatedly. These types of simulations are known as Meta-Dynamics (MTD) simulations and can be very useful for exploring the potential energy surface (PES) of a molecule.  
 To activate MTD simulations, add the following block to your **xtb** input file:  
 
