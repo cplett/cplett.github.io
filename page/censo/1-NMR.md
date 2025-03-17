@@ -15,7 +15,7 @@ permalink: page/censo/nmr
 
 {% include note.html content='Due to technical reasons, you are going to use **censo** v1 in the following exercise. However, **censo** 2 is generally advised due to additional features, and updated methods. Please note that the input file structure differs a little, while the principle functionality remains similar. For an overview over the different input file formats, please see the [documentation](https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censorc.html).'%}
 
-As an example, use **crest** to first generate an ensemble of 2-Fluoropropan-1-ol with GFN2-xTB in Acetone.
+As an example, use **crest** to first generate an ensemble of 2-Fluoropropan-1-ol with GFN2-xTB in water.
 
 <!-- Tab links -->
 <div class="tab card">
@@ -83,7 +83,7 @@ $GENERAL SETTINGS:
 nconf: all                       # ['all', 'number e.g. 10 up to all conformers'] 
 charge: 0                        # ['number e.g. 0'] 
 unpaired: 0                      # ['number e.g. 0'] 
-solvent: acetone                 # ['gas', 'acetone', 'acetonitrile', 'aniline', 'benzaldehyde', 'benzene', 'ccl4', '...'] 
+solvent: water                   # ['gas', 'acetone', 'acetonitrile', 'aniline', 'benzaldehyde', 'benzene', 'ccl4', '...'] 
 prog_rrho: xtb                   # ['xtb'] 
 temperature: 298.15              # ['temperature in K e.g. 298.15'] 
 trange: [273.15, 378.15, 5]      # ['temperature range [start, end, step]'] 
