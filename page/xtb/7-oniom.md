@@ -10,13 +10,13 @@ permalink: page/xtb/oniom
 # {{ page.title }}
 The ONIOM scheme is a multiscale approach designed to efficiently handle large systems using a divide-and-conquer strategy.
 The general idea is to partition the system into different subregions—typically an inner and an outer region—and then compute them at different levels of theory.
-This method enhances computational efficiency while maintaining the required accuracy in the region of interest (e.g., the ligand pocket in proteins).
+This method enhances computational efficiency while maintaining the required accuracy in the region of interest (*e.g.*, the ligand pocket in proteins).
 
 
 ## Definition of Inner Region
 
-To perform an ONIOM calculation with xtb, the first step is to define the inner region of the system.
-Please use a molecular visualizer of your choice that can display atom numbers (*e.g.* Molden) and note an appropriate inner region of the DALTES MOC. For example, a metal linker like *1,13,61-64,81,82,87,88,208-209,249-252*.
+To perform an ONIOM calculation with **xtb**, the first step is to define the inner region of the system.
+Please use a molecular visualizer of your choice that can display atom numbers (*e.g.*, Molden) and note an appropriate inner region of the DALTES MOC. As an example, a metal linker like *1,13,61-64,81,82,87,88,208-209,249-252* could be used.
 The program accepts the inner region defined via atom indicies. It is given as a command-line argument in the form of a comma-separated list as shown above.
 
 {% include note.html content='The boundaries resulting from the artificial system decomposition should be carefully defined. As a general rule, the inner region should be chosen that either no bonds (multiple molecules) or single bonds are cut, but no double, or triple bonds. However, in more complicated examples like the one we are using here, this might be necessary. In these cases, the problematic bonds should manually be checked.' %}
@@ -510,4 +510,4 @@ $end
 After the optimization succeeds, you can examine the different `*.log` and `*.xyz` files.
 In this case, we are constraining the total charges (via **--chrg**) of the inner:outer regions to 0:0.
 Try running the calculation without this constraint and observe how the results change.
-In addition, you can try to increase/decrease inner region size (e.g., take more metal nodes, or include organic linkers).
+In addition, you can try to increase/decrease the size of the inner region (*e.g.*, take more metal nodes, or include organic linkers).

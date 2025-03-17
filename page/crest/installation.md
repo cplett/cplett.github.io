@@ -9,13 +9,13 @@ permalink: /page/crest/installation
 
 ## General Considerations
 
-Similar to **xtb**, the **crest** software is open-source and available under the LGPL 3.0 license on the GitHub platform. The [guideline](https://crest-lab.github.io/crest-docs/page/installation) for installation is also similar to **xtb**. In case of any issues, you can always refer to the full documentation for further details.
+Similar to **xtb**, the **crest** software is open-source and available under the LGPL 3.0 license on [GitHub](https://github.com/crest-lab/crest). The [guideline](https://crest-lab.github.io/crest-docs/page/installation) for installation is also similar to **xtb**.
 
-{% include warning.html content="Primary operating system (OS) for the development and application of **xtb** is Linux. While it is possible to install **xtb** on Windows and macOS, support for these platforms may be more limited." %}
+{% include warning.html content="Primary operating system (OS) for the development and application of **crest** is Linux. While it is possible to install **crest** on Windows and macOS, support for these platforms may be more limited." %}
 
 
 ## Straighforward Installation
-The most straightforward way to install xtb is by downloading the [precompiled binaries](https://github.com/crest-lab/crest/releases). You can also get bleeding-edge version of the program.
+The most straightforward way to install **crest** is by downloading the [precompiled binaries](https://github.com/crest-lab/crest/releases). Here, you can also get a bleeding-edge version of the program.
 After downloading the appropriate version, extract it, make it executable, and add it to your `PATH` variable:
 
 To verify that the executable is correctly linked, use:
@@ -35,9 +35,9 @@ For **crest** to work properly, **xtb** is required. **crest** will automaticall
 
 ## Homebrew Support
 
-**xtb** can also be installed with Homebrew.
+**crest** can also be installed with Homebrew.
 The support is provided by an additional [GitHub](https://github.com/grimme-lab/homebrew-qc) repository that provides access also to additional software.
-**xtb** can be installed on MacOS via
+**crest** can be installed on MacOS via
 
 ```bash
 brew tap grimme-lab/qc

@@ -18,16 +18,18 @@ crest struc.xyz
 This results in a file called `crest_best.xyz` containing the best conformer found, `crest_conformers.xyz` containing the conformer ensemble sorted by energy and without duplicates, and the `crest_rotamers.xyz` file containing an ensemble of rotamers sorted by energy.
 
 Many features of **xtb** can be used also with **crest**, for example, implicit solvation and the different GFN methods. The command line flags are similar to **xtb**, *e.g.,* `--alpb <solvent>` or `--gfnff`.  
-You can define the number of cores to use with the **-T** argument. All available flags are listed in the [documentation](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html).
+You can define the number of cores to use with the **-T <Int>** argument. All available flags are listed in the [documentation](https://crest-lab.github.io/crest-docs/page/documentation/keywords.html).
 
-**crest** comes with mostly robust defaults. However, setting robust defaults covering the complete chemical space is not possible. Therefore, it might especially for NCI complexes be necessary to adjust these defaults like the MD length (`--mdlen <REAL>`).
+**crest** comes with mostly robust defaults. However, setting robust defaults covering the complete chemical space is not possible. Therefore, it might be necessary to adjust these defaults like the MD length (`--mdlen <REAL>`).
 To get a feeling on whether the settings are reasonable, the `--keepdir` flag can be used when starting a crest run. This will leave a `MDFILES` folder with different trajectories of the **crest** runs.
 Inspecting them with, *e.g.*, Molden can be used to check how the molecule behaves during the simulations.
 More on this is explained in the [respective chapter](page/crest/nci).
 
-{% include warning.html content='Per default, **crest** generates an ensemble with structures in a certain energy window, *e.g.*, for a conformer search per default 6 kcal/mol. Every conformer above this window will be discarded and is lost forever. Especially for electronically challenging systems, where the applied method, *e.g.*, GFN2-xTB, is expected to have larger errors, important conformers are lost and cannot be recovered by following ensemble refinements. Thus, it is very important to increase the energy window for such cases with the `--ewin <REAL>` flag.' %}
+{% include warning.html content='Per default, **crest** generates an ensemble with structures in a certain energy window, *e.g.*, for a conformer search 6 kcal/mol. Every conformer above this window will be discarded and is lost forever. Especially for electronically challenging systems, where the applied method, *e.g.*, GFN2-xTB, is expected to have larger errors, important conformers are lost and cannot be recovered by following ensemble refinements. Thus, it is very important to increase the energy window for such cases with the `--ewin <REAL>` flag.' %}
 
-As more simple example, compute the ensemble of histidine including implicit water solvation with the GFN-FF method.
+## Exercise
+
+As a simple example, compute the ensemble of histidine including implicit water solvation with the GFN-FF method.
 
 <!-- Tab links -->
 <div class="tab card">
@@ -67,6 +69,6 @@ H     -1.2415000000   -2.6142000000   -0.4801000000
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
-After the CREST calculation, you will find your ensemble and some additional files in your working directory. Your ensemble will be dumped in XYZ format in a file called `crest_conformers.xyz`. You can have a look at the ensemble file by opening it with, e.g., molden.
+After the CREST calculation, you will find an ensemble and some additional files in your working directory. The ensemble will be dumped in XYZ format in a file called `crest_conformers.xyz`. You can have a look at the ensemble file by opening it with, *e.g.*, molden.
 
-{% include warning.html content='CREST works stochastically and is thus non-deterministic. For molecules with higher flexibility, the results of CREST might differ and thus, multiple runs should be used.' %}
+{% include warning.html content='CREST works stochastically and is thus non-deterministic. For molecules with higher flexibility, the results of CREST might differ and multiple runs should be used.' %}

@@ -21,11 +21,11 @@ The `best_after_gen.xyz` file contains the best structure found before GFN optim
 
 Charges and the number of unpaired electrons for both molecules can be defined individually using the `--chrg1 <INT>`, `--chrg2 <INT>`, `--uhf1 <INT>`, and `--uhf2 <INT>` flags.
 Many standard **xtb** flags like the use of solvation as well as choosing different methods can be applied.
-Further, thresholds for the docking can be adjusted with an additional input file. More details on this are available at the [documentation](https://xtb-docs.readthedocs.io/en/latest/xtb_docking.html).
+Further, thresholds for the docking can be adjusted with an additional input file. Also, the generation of a whole ensemble with the `--ensemble` flag can be requested. Further details are available at the [documentation](https://xtb-docs.readthedocs.io/en/latest/xtb_docking.html) and the [publication](https://onlinelibrary.wiley.com/doi/full/10.1002/anie.202214477).
 
 {% include warning.html content='Due to technical issues, docking in xtb version 6.7.1 may not work properly. It is recommended to use version 6.7.0 or a bleeding-edge version of xtb for this exercise.' %}
 
-As an example, dock the following molecules in THF solvent. Molecule A has a charge of +1, while molecule B has a charge of -1.
+As an example, dock the following molecules in THF solvent. Molecule 1 has a charge of +1, while molecule 2 has a charge of -1.
 
 {% include note.html content='The calculation can be speed up by using the `--fast` flag.' %}
 

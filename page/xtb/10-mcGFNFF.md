@@ -24,6 +24,8 @@ xtb struc.coord --mcgfnff --opt
 
 The resulting structure can be found in the `xtbopt.coord` file, which includes the optimized lattice parameters. A trajectory of the optimization is available in the `xtboptlog.cif` file.
 
+## Exercise
+
 As an example, optimize the unit cell of benzene. To visualize the structure, you can convert the Turbomole format to xyz using a tool like **mctc-convert** and then open it with a graphical program such as Molden.
 
 <!-- Tab links -->

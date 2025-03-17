@@ -13,7 +13,7 @@ Semi-empirical methods are frequently used to explore and efficiently sample the
 
 In addition to conformational search algorithms, CREST offers various workflows, with the most important ones covered in this workshop.
 
-For more details about CREST, visit the [documentation](https://crest-lab.github.io/crest-docs/).
+For more details about CREST including an explanation of the different workflows, visit the [documentation](https://crest-lab.github.io/crest-docs/).
 
 {% include image.html file="crest_full.png" alt="CREST" max-width=750 %}
 
