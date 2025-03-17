@@ -11,157 +11,183 @@ permalink: page/censo/nmr
 
 **CENSO** is not only capable of ensemble refinement, but also allows the automated computation of NMR spectra for an entire ensemble. Since NMR is a structure-sensitive property, this is a prime example of the importance of ensemble quality.
 
-As an example, use **CENSO** to refine the ensemble you computed for histidine in the [respective CREST ensemble](page/crest/ensemble).
+## Exercise
 
-{% include image.html file="l-histidine.png" alt="hist" max-width=400 %}
+{% include note.html content='Due to technical reasons, you are going to use **censo** v1 in the following exercise. However, **censo** 2 is generally advised due to additional features, and updated methods. Please note that the input file structure differs a little, while the principle functionality remains similar. For an overview over the different input file formats, please see the [documentation](https://xtb-docs.readthedocs.io/en/latest/CENSO_docs/censorc.html).'%}
 
-{% include important.html content='This task requires some time to compute, approximately 2.5 hours on 4 cores (Intel(R) Xeon(R) CPU E3-1270 v5 @ 3.60GHz, not the fastest). Most of the time will be spent on geometry optimizations, so if you expect this to take too long, consider skipping the geometry optimization step in CENSO (set run = False in the **optimization** section in censo2rc histidine)' %}
+As an example, use **crest** to first generate an ensemble of 2-Fluoropropan-1-ol with GFN2-xTB in Acetone.
 
-## Ensemble Refinement and Spectral Parameter Calculation
+<!-- Tab links -->
+<div class="tab card">
+  <button
+    class="tablinks tab-id-1"
+    onclick="openTabId(event, 'struc-1', 'tab-id-1')"
+    id="open-1">
+    {{ site.data.icons.codefile }} <code>2-Fluoropropan-1-ol.xyz</code>
+  </button>
+</div>
+<!-- Tab content -->
+<div id="struc-1" class="tabcontent tab-id-1" style="text-align:justify">
+{% capture struc_file_1 %}
+10
+
+  O     1.398839    1.025407   -0.886750
+  C     0.372477    0.456264   -0.628697
+  C    -0.032777   -0.054166    0.729167
+  H    -0.916315    0.504071    1.066256
+  H    -0.386361    0.248155   -1.401738
+  C    -0.304030   -1.554058    0.707502
+  H    -0.567187   -1.886134    1.707543
+  H    -1.123368   -1.765489    0.029484
+  H     0.585461   -2.087710    0.383005
+  F     0.964760    0.230530    1.658525
+{% endcapture %}
+{% include codecell.html content=struc_file_1 style="font-size:10px" %}
+</div>
 
 {% include important.html content='For the next steps, the ORCA software is required.' %}
 
 Next, you will refine the ensemble using DFT calculations.  
-**CREST** uses GFN2-xTB as the default method, which produces ensemble rankings that are not accurate enough for NMR calculations. Therefore, it is necessary to refine the initial ensemble.  
-You can do this using **CENSO**, which automates the process of ensemble refinement and property calculation.
+**crest** uses GFN2-xTB as the default method, which produces ensemble rankings that are not accurate enough for, *e.g.*, NMR calculations. Therefore, it is necessary to refine the initial ensemble.  
+You can do this using **CENSO**, which automates the process of ensemble refinement.
 
-**Before starting your calculations, please configure the program paths in the provided configuration file.**  
-You can define the number of cores for **CENSO** with **--maxcores**.
+Use the following input to refine the ensemble.
 
  <!-- Tab links -->
 <div class="tab card">
   <button class="tablinks tab-id-2" onclick="openTabId(event, 'tab-2-1', 'tab-id-2')" id="open-2">{{ site.data.icons.code }} <code>command</code></button>
-  <button class="tablinks tab-id-2" onclick="openTabId(event, 'tab-2-2', 'tab-id-2')">{{ site.data.icons.codefile }} <code>conso2rc_histidine</code></button>
+  <button class="tablinks tab-id-2" onclick="openTabId(event, 'tab-2-2', 'tab-id-2')">{{ site.data.icons.codefile }} <code>censorc</code></button>
 </div>
 <!-- Tab content -->
 <div id="tab-2-1" class="tabcontent tab-id-2" style="text-align:justify">
-{% include command.html cmd="censo  <span class='nt'>-i</span> crest_conformers.xyz <span class='nt'>--inprc</span> censo2rc_histidine > censo.out &" %}
+{% include command.html cmd="censo -inp crest_conformers.xyz -inprc censorc -T 8 > censo.out &" %}
     </div>
 <div id="tab-2-2" class="tabcontent tab-id-2" style="text-align:justify">
 {% capture struc_file %}
-[prescreening]
-threshold = 4.0
-func = pbe-d4
-basis = def2-SV(P)
-prog = tm
-gfnv = gfn2
-run = False
-template = False
+$CENSO global configuration file: .censorc
+$VERSION:1.2.0 
 
-[screening]
-threshold = 3.5
-func = r2scan-3c
-basis = def2-TZVP
-prog = orca
-sm = smd
-gfnv = gfn2
-run = True
-implicit = True
-template = False
+ORCA: /home/software/cluster/orca_5_0_4_linux_x86-64_openmpi411
+ORCA version: 5.0.4
+GFN-xTB: /home/abt-grimme/AK-bin/xtb
+CREST: /home/abt-grimme/AK-bin/crest
+mpshift: /path/including/binary/mpshift-binary
+escf: /path/including/binary/escf-binary
 
-[optimization]
-optcycles = 8
-maxcyc = 200
-threshold = 2.0
-hlow = 0.01
-gradthr = 0.01
-func = r2scan-3c
-basis = def2-TZVP
-prog = orca
-sm = smd
-gfnv = gfn2
-optlevel = loose
-run = False
-macrocycles = True
-crestcheck = False
-template = False
-constrain = False
-xtb_opt = True
+#COSMO-RS
+ctd = BP_TZVP_C30_1601.ctd cdir = "/software/cluster/COSMOthermX16/COSMOtherm/CTDATA-FILES" ldir = "/software/cluster/COSMOthermX16/COSMOtherm/CTDATA-FILES"
+$ENDPROGRAMS
 
-[refinement]
-threshold = 0.95
-func = wb97x-v
-basis = def2-TZVP
-prog = tm
-sm = cosmors
-gfnv = gfn2
-run = False
-implicit = False
-template = False
+$CRE SORTING SETTINGS:
+$GENERAL SETTINGS:
+nconf: all                       # ['all', 'number e.g. 10 up to all conformers'] 
+charge: 0                        # ['number e.g. 0'] 
+unpaired: 0                      # ['number e.g. 0'] 
+solvent: acetone                 # ['gas', 'acetone', 'acetonitrile', 'aniline', 'benzaldehyde', 'benzene', 'ccl4', '...'] 
+prog_rrho: xtb                   # ['xtb'] 
+temperature: 298.15              # ['temperature in K e.g. 298.15'] 
+trange: [273.15, 378.15, 5]      # ['temperature range [start, end, step]'] 
+multitemp: on                    # ['on', 'off'] 
+evaluate_rrho: on                # ['on', 'off'] 
+consider_sym: on                 # ['on', 'off'] 
+bhess: on                        # ['on', 'off'] 
+imagthr: automatic               # ['automatic or e.g., -100    # in cm-1'] 
+sthr: automatic                  # ['automatic or e.g., 50     # in cm-1'] 
+scale: automatic                 # ['automatic or e.g., 1.0 '] 
+rmsdbias: off                    # ['on', 'off'] 
+sm_rrho: alpb                    # ['alpb', 'gbsa'] 
+progress: off                    # ['on', 'off'] 
+check: on                        # ['on', 'off'] 
+prog: orca                       # ['tm', 'orca'] 
+func: r2scan-3c                  # ['b3-lyp', 'b3lyp', 'b3lyp-3c', 'b3lyp-d3', 'b3lyp-d3(0)', 'b3lyp-d4', 'b3lyp-nl', '...'] 
+basis: automatic                 # ['automatic', 'def2-TZVP', 'def2-mSVP', 'def2-mSVP', 'def2-mSVP', 'def2-mSVP', '...'] 
+maxthreads: 1                    # ['number of threads e.g. 2'] 
+omp: 1                           # ['number cores per thread e.g. 4'] 
+balance: off                     # ['on', 'off'] 
+cosmorsparam: automatic          # ['automatic', '12-fine', '12-normal', '13-fine', '13-normal', '14-fine', '...'] 
 
-[nmr]
-resonance_frequency = 600.0
-ss_cutoff = 8.0
-prog = orca
-func_j = r2scan-d4
-basis_j = def2-TZVP
-sm_j = smd
-func_s = r2scan-d4
-basis_s = def2-TZVP
-sm_s = smd
-gfnv = gfn2
-run = True
-template = False
-couplings = True
-fc_only = True
-shieldings = True
-h_active = True
-c_active = False
-f_active = False
-si_active = False
-p_active = False
+$PART0 - CHEAP-PRESCREENING - SETTINGS:
+part0: on                        # ['on', 'off'] 
+func0: b97-d3                    # ['b3-lyp', 'b3lyp', 'b3lyp-3c', 'b3lyp-d3', 'b3lyp-d3(0)', 'b3lyp-d4', '...'] 
+basis0: def2-SV(P)               # ['automatic', 'def2-SV(P)', 'def2-TZVP', 'def2-mSVP', 'def2-mSVP', 'def2-mSVP', '...'] 
+part0_gfnv: gfn2                 # ['gfn1', 'gfn2', 'gfnff'] 
+part0_threshold: 4.0             # ['number e.g. 4.0'] 
 
-[uvvis]
-prog = orca
-func = wb97x-d4
-basis = def2-TZVP
-sm = smd
-gfnv = gfn2
-nroots = 20
-run = False
-template = False
+$PART1 - PRESCREENING - SETTINGS:
+# func and basis is set under GENERAL SETTINGS
+part1: on                        # ['on', 'off'] 
+smgsolv1: smd                    # ['alpb_gsolv', 'cosmo', 'cosmors', 'cosmors-fine', 'cpcm', 'dcosmors', '...'] 
+part1_gfnv: gfn2                 # ['gfn1', 'gfn2', 'gfnff'] 
+part1_threshold: 3.5             # ['number e.g. 5.0'] 
 
-[general]
-imagthr = -100.0
-sthr = 0.0
-scale = 1.0
-temperature = 298.15
-solvent = h2o
-sm_rrho = alpb
-multitemp = True
-evaluate_rrho = True
-consider_sym = True
-bhess = True
-rmsdbias = False
-balance = True
-gas-phase = False
-copy_mo = True
-retry_failed = True
-trange = [273.15, 373.15, 5]
+$PART2 - OPTIMIZATION - SETTINGS:
+# func and basis is set under GENERAL SETTINGS
+part2: on                        # ['on', 'off'] 
+prog2opt: prog                   # ['tm', 'orca', 'prog', 'automatic'] 
+part2_threshold: 2.5             # ['number e.g. 4.0'] 
+sm2: smd                         # ['cosmo', 'cpcm', 'dcosmors', 'default', 'smd'] 
+smgsolv2: smd                    # ['alpb_gsolv', 'cosmo', 'cosmors', 'cosmors-fine', 'cpcm', 'dcosmors', '...'] 
+part2_gfnv: gfn2                 # ['gfn1', 'gfn2', 'gfnff'] 
+ancopt: on                       # ['on'] 
+hlow: 0.01                       # ['lowest force constant in ANC generation, e.g. 0.01'] 
+opt_spearman: on                 # ['on', 'off'] 
+part2_P_threshold: 99            # ['Boltzmann sum threshold in %. e.g. 95 (between 1 and 100)'] 
+optlevel2: automatic             # ['crude', 'sloppy', 'loose', 'lax', 'normal', 'tight', 'vtight', 'extreme', '...'] 
+optcycles: 8                     # ['number e.g. 5 or 10'] 
+spearmanthr: -4.0                # ['value between -1 and 1, if outside set automatically'] 
+radsize: 10                      # ['number e.g. 8 or 10'] 
+crestcheck: off                  # ['on', 'off'] 
 
-[paths]
-orcapath = /path/to/orca/binary
-xtbpath = /path/to/xtb/binary
-mpshiftpath = 
-escfpath = 
-orcaversion = 
+$PART3 - REFINEMENT - SETTINGS:
+part3: on                        # ['on', 'off'] 
+prog3: prog                      # ['tm', 'orca', 'prog'] 
+func3: pw6b95                    # ['b3-lyp', 'b3lyp', 'b3lyp-3c', 'b3lyp-d3', 'b3lyp-d3(0)', 'b3lyp-d4', 'b3lyp-nl', '...'] 
+basis3: def2-TZVPD               # ['DZ', 'QZV', 'QZVP', 'QZVPP', 'SV(P)', 'SVP', 'TZVP', 'TZVPP', 'aug-cc-pV5Z', '...'] 
+smgsolv3: smd                    # ['alpb_gsolv', 'cosmo', 'cosmors', 'cosmors-fine', 'cpcm', 'dcosmors', '...'] 
+part3_gfnv: gfn2                 # ['gfn1', 'gfn2', 'gfnff'] 
+part3_threshold: 99              # ['Boltzmann sum threshold in %. e.g. 95 (between 1 and 100)'] 
+
+$NMR PROPERTY SETTINGS:
+$PART4 SETTINGS:
+part4: off                       # ['on', 'off'] 
+couplings: on                    # ['on', 'off'] 
+progJ: prog                      # ['tm', 'orca', 'prog'] 
+funcJ: pbe0                      # ['b3-lyp', 'b3lyp', 'b3lyp-3c', 'b3lyp-d3', 'b3lyp-d3(0)', 'b3lyp-d4', 'b3lyp-nl', '...'] 
+basisJ: def2-TZVP                # ['DZ', 'QZV', 'QZVP', 'QZVPP', 'SV(P)', 'SVP', 'TZVP', 'TZVPP', 'aug-cc-pV5Z', '...'] 
+sm4J: smd                        # ['cosmo', 'cpcm', 'dcosmors', 'smd'] 
+shieldings: on                   # ['on', 'off'] 
+progS: prog                      # ['tm', 'orca', 'prog'] 
+funcS: pbe0                      # ['b3-lyp', 'b3lyp', 'b3lyp-3c', 'b3lyp-d3', 'b3lyp-d3(0)', 'b3lyp-d4', 'b3lyp-nl', '...'] 
+basisS: def2-TZVP                # ['DZ', 'QZV', 'QZVP', 'QZVPP', 'SV(P)', 'SVP', 'TZVP', 'TZVPP', 'aug-cc-pV5Z', '...'] 
+sm4S: smd                        # ['cosmo', 'cpcm', 'dcosmors', 'smd'] 
+reference_1H: TMS                # ['TMS'] 
+reference_13C: TMS               # ['TMS'] 
+reference_19F: CFCl3             # ['CFCl3'] 
+reference_29Si: TMS              # ['TMS'] 
+reference_31P: TMP               # ['TMP', 'PH3'] 
+1H_active: on                    # ['on', 'off'] 
+13C_active: on                   # ['on', 'off'] 
+19F_active: off                  # ['on', 'off'] 
+29Si_active: off                 # ['on', 'off'] 
+31P_active: off                  # ['on', 'off'] 
+resonance_frequency: 300.0       # ['MHz number of your experimental spectrometer setup'] 
+
+$OPTICAL ROTATION PROPERTY SETTINGS:
+$PART5 SETTINGS:
+optical_rotation: off            # ['on', 'off'] 
+funcOR: pbe                      # ['functional for opt_rot e.g. pbe'] 
+funcOR_SCF: r2scan-3c            # ['functional for SCF in opt_rot e.g. r2scan-3c'] 
+basisOR: def2-SVPD               # ['basis set for opt_rot e.g. def2-SVPD'] 
+frequency_optical_rot: [589.0]   # ['list of freq in nm to evaluate opt rot at e.g. [589, 700]'] 
+$END CENSORC
 {% endcapture %}
 {% include codecell.html content=struc_file style="font-size:10px" %}
 </div>
 
-{% include defaulttab.html id="open-2" %}
+The best structure found is written to `coord.enso_best`, the whole ensemble after part 2 to `enso_ensemble_part2.xyz` and the refined ensemble after part 3 to `enso_ensemble_part3.xyz`. Compare the ranking of the conformers with the GFN2-xTB ensemble resulting with **crest**.
 
-CENSO will write output for all parts in text format, as well as in JSON format (`.out` and `.json` files). You will also find ensembles in XYZ format, along with all files generated during the run, organized by section in your working directory.  
-\\  
-In the program's printout and in the `4_NMR.out` file, you will find the ensemble-averaged NMR parameters. Sodium trimethylsilylpropanesulfonate (DSS) is used as the NMR standard, and the spectrum is recorded at a frequency of 600 MHz in aqueous solution.  
-Compare the ensemble-averaged values and the values for the lowest conformer only to the provided experimental reference values below.
+## Optional
+With **censo**, also NMR computations can be done. Use the refined ensemble as input for an additional **censo** calculation where every part is turned of except part 4.
 
-| δ (ppm) | Integral | Multiplet type | J (Hz) | Atom No. |
-| :---:   | :---:    | :---:          | :---:  | :---:    |
-| 3.16    | 1        | dd             | 15.55, 7.7 | 6    |
-| 3.23    | 1        | dd             | 16.10, 4.9 | 6    |
-| 3.98    | 1        | dd             | 7.73, 4.98 | 7    |
-| 7.09    | 1        | d              | 0.58       | 5    |
-| 7.9     | 1        | d              | 1.13       | 2    |
+{% include note.html content='The NMR calculation can also be done together with the refinment in one calculation by activating all the respective parts with the `censorc`.'%}
 
-{% include image.html file="l-histidine-atoms.png" alt="histidine" max-width=300 %}
