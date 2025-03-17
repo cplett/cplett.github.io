@@ -9,7 +9,7 @@ permalink: page/crest/nci
 
 # NCI Mode
 
-For systems with non-covalently interacting molecules, **CREST** provides a special runtype invoked with the **--nci** flag:
+For systems with non-covalently interacting molecules, **crest** provides a special runtype invoked with the **--nci** flag:
 
 ```bash
 crest struc.xyz --nci
@@ -22,8 +22,9 @@ This will apply a wall potential to prevent the dissociation of molecules during
 For systems with multiple molecules, it is highly recommended to run **crest** multiple times on the same system and combine the results.
 You can also sort the combined ensemble using **crest**, as explained in the [additional features chapter](page/crest/addition).
 Additionally, it may be helpful to try different settings, such as adjusting the temperature of the MD runs (`--tnmd <INT>`) or increasing the number of search cycles (`--mrest <INT>`).
+
 Adjusting the wall potential to your needs can also become very relevant. This can be done with the `--wscal <REAL>` flag, where `<REAL>` is a scaling of the wall potential size (per default `1.0`).
-To see the influence of the wall potential, again the `--keepdir` flag and checking the trajectories can be very helpful.
+To see the influence of the wall potential, the `--keepdir` flag can be used to allow checking the trajectories.
 
 {% include note.html content='To generate reasonable starting structures, the [**xtb** docking](page/xtb/docking) can be used.' %}
 

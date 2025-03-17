@@ -9,7 +9,7 @@ permalink: page/crest/crest
 
 # {{ page.title }}
 
-**CREST** is also a useful tool for protonating and deprotonating structures. Both can also be combined to tautomerize structures.
+**crest** is also a useful tool for protonating and deprotonating structures. Both can also be combined to tautomerize structures.
 In the following, we will try this for the dipeptide consisting of alanine and glycine (Ala-Gly).
 
 <!-- Tab links -->
@@ -58,9 +58,7 @@ Protonation screening can be requested with:
 crest struc.xyz --protonate
 ```
 
-All found structures will be stored in the `protonated.xyz` file.
-
-This uses GFN2-xTB by default. All protomers found by **CREST** are stored in `protonated.xyz`.
+This uses GFN2-xTB by default. All protomers found by **crest** are stored in `protonated.xyz`.
 
 Compute the protomers for Ala-Gly and determine the energetic ordering. Does the lowest protomer align with chemical intuition?
 
@@ -78,7 +76,7 @@ Compute the protomers for Ala-Gly and determine the energetic ordering.
 
 ## Combining Protonation and Deprotonation
 
-**CREST** can combine the protonation and deprotonation screenings to find tautomers.
+**crest** can combine the protonation and deprotonation screenings to find tautomers.
 
 ```bash
 crest struc.xyz --tautomerize

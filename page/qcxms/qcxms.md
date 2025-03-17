@@ -1,6 +1,6 @@
 ---
 layout: default
-nav_order: 5
+nav_order: 6
 title: QCxMS
 has_children: true
 permalink: page/qcxms
