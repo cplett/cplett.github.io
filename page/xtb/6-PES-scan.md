@@ -10,11 +10,11 @@ permalink: page/xtb/MM
 # {{ page.title }}
 
 Another feature of **xtb** is its ability to perform PES scans, such as along specific distances and angles.  
-Here, we will describe how to perform such scans.  
+For this, an additional input file is required containing that first constrains certain bonds, angles, or atoms and then changes these constrains step-wise while optimizing the rest of the structure.
+An example is given in the following. For details beyond that, please refer to the [documentation](https://xtb-docs.readthedocs.io/en/latest/scan.html).
 
+## Exercise
 As an example, we will conduct a constrained distance scan to disentangle a molecular muscle.
-
-## Constrained Scan
 In addition to the **molecularmuscle.xyz** structure file, you will need two additional input files: the `xtb.inp` input file and a `.CHRG` file to define the total charge.  
 
  <!-- Tab links -->
@@ -431,7 +431,7 @@ $end
 </div>
 {% include defaulttab.html %}
 
-Watch the scan (with *e.g.* molden) in the xtbscan.log file and determine the two native resting positions of the molecular muscle and when it starts to break apart artificially.
+Watch the scan (with, *e.g.*, molden) in the xtbscan.log file and determine the two native resting positions of the molecular muscle and when it starts to break apart artificially.
 
 
 ## Optional

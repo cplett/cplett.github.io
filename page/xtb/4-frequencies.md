@@ -17,7 +17,7 @@ xtb struc.xyz --hess
 
 Alternatively, the `--ohess` flag can be used to directly perform an optimization followed by a Hessian calculation.  
 
-{% include warning.html content='Computing Hessians on structures that are not fully optimized, or on transition states, will have no physical meaning. This should generally be avoided when computing thermocontributions or spectra.'%}  
+{% include warning.html content='Computing Hessians on structures that are not fully optimized will have no physical meaning. This should generally be avoided when computing thermocontributions or spectra.'%}  
 
 At the end of the calculation, the output will include the frequencies, total free energy, and the total thermocorrection (`G(RRHO) contrib.`) at the chosen temperature (default 298.15 K):
 
@@ -42,11 +42,16 @@ $thermo
 $end
 ```
 
-Additionally, a `vibspectrum` file will be generated, containing the IR-active modes with their respective intensities. A Gaussian output file (`g98.out`) will also be created, which can be opened with tools like **Molden** to directly view the vibrational levels. By activating the `Norm. Mode` in the top right of the Molden control window, a list of frequencies is shown that can be selected to display the respective vibrational mode. 
+Additionally, a `vibspectrum` file will be generated, containing the IR-active modes with their respective intensities. A Gaussian output file (`g98.out`) will also be created, which can be opened with tools like **Molden** to directly view the vibrational levels.
+{% include tip.html content='By activating the `Norm. Mode` in the top right of the Molden control window, a list of frequencies is shown that can be selected to display the respective vibrational mode.'%}  
 
 These vibrational levels can be used to identify transition states or to confirm that the geometry has converged to a minimum.  
 
-To assess the provided structure, check whether it represents a minimum, a reasonable transition state, or an arbitrary point on the potential energy surface (PES). Use GFN2-xTB with ALPB(THF). Observe how the spectrum changes when switching to GFN-FF with ALPB(THF) instead.  
+## Exercise
+
+Assess the provided structure and check whether it represents a minimum, a reasonable transition state, or an arbitrary point on the potential energy surface (PES).
+Use GFN2-xTB with ALPB(THF).
+Observe how the spectrum changes when switching to GFN-FF with ALPB(THF) instead.  
 
 <!-- Tab links -->
 <div class="tab card">
@@ -126,10 +131,18 @@ H -1.86324 -0.09332 -2.73789
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
+## Single-Point Hessian
+
 Another feature of **xtb** is the Single-Point Hessian (SPH) approach, which allows the calculation of reasonable Hessians on arbitrary structures.  
 
 This can be useful, for example, to compute thermocorrections for a DFT-optimized structure, saving computational time compared to a more expensive DFT Hessian calculation.  
 
-To activate the SPH approach, use the `--bhess` flag, as described in the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations). For further details on the theoretical concept, refer to the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).  
+To activate the SPH approach, use the `--bhess` flag, *e.g.*
+
+```bash
+xtb struc.xyz --bhess
+```
 
 {% include warning.html content='SPH is often not suitable for transition states, as the imaginary mode will also be lost.'%}
+
+For further details, please refer to the [documentation](https://xtb-docs.readthedocs.io/en/latest/hessian.html#single-point-hessian-sph-calculations) and the [publication](https://pubs.acs.org/doi/10.1021/acs.jctc.0c01306).  

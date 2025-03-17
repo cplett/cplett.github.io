@@ -6,9 +6,9 @@ nav_order: 1
 
 # Workshop on Grimme-Lab Software
 
-Welcome to the Grimme-Lab workshop. This page provides materials and exercises for xtb, crest, censo, and QCxMS-related tasks and applications.  
+Welcome to the Grimme-Lab workshop. This page provides materials and exercises for **xtb**, **CREST**, **CENSO**, and **QCxMS(2)**-related tasks and applications.  
 
-Use the sidebar on the left to navigate to the programs you're interested in.  
+Please use the sidebar on the left to navigate to the programs you're interested in.  
 
 <div class="image-container">
   <div class="image-item">

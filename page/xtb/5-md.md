@@ -10,8 +10,8 @@ permalink: page/xtb/MD
 
 # Molecular Dynamics Simulations
 
-**xtb** can also be used to perform molecular dynamics (MD) simulations.  
-An MD simulation following a previous optimization can be initiated with:  
+**xtb** is also capable of performing molecular dynamics (MD) simulations.  
+An MD simulation with pre-optimization can be initiated with:  
 
 ```bash
 xtb struc.xyz --omd
@@ -38,8 +38,10 @@ $end
 
 Further keywords and explanations can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/md.html#parameters).  
 {% include note.html content='If the MD simulation becomes unstable, you can try lowering the time step or increasing the hydrogen mass. This is particularly recommended when using GFN-FF.' %}  
+
+## Exercise 1
+
 Try running an MD simulation using GFN-FF with the ALPB(water) solvation model and default settings.  
-Next, run another MD simulation with the same settings but adjust the time step to 2.0 fs by providing an input file. For time efficiency, reduce the MD length to 20 ps this time, but please be aware that this is by far not sufficient for production runs.
 
 <!-- Tab links -->
 <div class="tab card">
@@ -149,7 +151,11 @@ Next, run another MD simulation with the same settings but adjust the time step 
 {% include codecell.html content=struc_file_1 style="font-size:10px" %}
 </div>
 
+Next, run another MD simulation with the same settings but adjust the time step to 2.0 fs by providing an input file. For time efficiency, reduce the MD length to 20 ps this time, but please be aware that this is by far not sufficient for production runs.
+
 You can view the resulting trajectory by opening the `xtb.trj` file with tools like **Molden**.  
+
+## MTD simulations
 With **xtb**, you can also apply additional potentials during MD simulations to drive the molecule over energy barriers and prevent sampling the same structure repeatedly. These types of simulations are known as Meta-Dynamics (MTD) simulations and can be very useful for exploring the potential energy surface (PES) of a molecule.  
 To activate MTD simulations, add the following block to your **xtb** input file:  
 
@@ -160,6 +166,8 @@ $metadyn
    alp=0.2
 $end
 ```
+
+## Exercise 2
 
 Perform a new MD simulation using the **xtb** input file you created earlier, but add a second block to activate the MTD simulation as shown above. Check the resulting trajectory and compare it to the normal MD simulation.  
 

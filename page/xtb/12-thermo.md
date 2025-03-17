@@ -1,6 +1,6 @@
 ---
 layout: default
-title: thermo submodule
+title: Thermo Submodule
 parent: "xtb"
 nav_order: 13
 has_children: false

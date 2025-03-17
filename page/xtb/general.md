@@ -50,7 +50,7 @@ To perform specific calculations or access different functionalities, you can us
 
 
 ## Available Methods
-**xtb**upports the GFN2-xTB, GFN1-xTB, and GFN-FF methods. By default, it uses GFN2-xTB, but you can specify a different method using the corresponding flag:
+**xtb** supports the GFN2-xTB, GFN1-xTB, and GFN-FF methods. By default, GFN2-xTB is used. Other methods can be employed by providing the corresponding flag:
 
 ```bash
 xtb struc.xyz --gfn2
@@ -59,13 +59,14 @@ xtb struc.xyz --gfnff
 ```
 
 ## Additional Input File
-While **xtb** has robust default settings, you may need to adjust parameters for certain calculations. You can provide an additional input file using:
+While **xtb** has robust default settings, you may need to adjust parameters for certain calculations.
+This can be done by providing an additional input file:
 
 ```bash
 xtb struc.xyz --input <xtb.inp>
 ```
 
-These input files can contain multiple blocks, each beginning with a keyword (e.g., `$md`), followed by various settings, and ending with `$end`. For instance, to set the time and temperature for a molecular dynamics (MD) simulation, you can use the following input file:
+These input files can contain multiple blocks, each beginning with a keyword (*e.g.*, `$md`), followed by various settings, and ending with `$end`. For instance, to set the time and temperature for a molecular dynamics (MD) simulation, you can use the following input file:
 
 ```bash
 $md
@@ -77,7 +78,8 @@ $end
 More detailed settings will be explained in the respective exercises.
 
 ## Constraining and Fixing Structures
-The additional input file also allows you to constrain specific bonds and angles, which is useful when you want to maintain certain bonding motifs during optimization or MD simulations. A constraint block might look like this:
+The additional input file also allows you to constrain specific bonds and angles
+This is very important when you want to maintain certain bonding motifs during optimization or MD simulations. A constraint block might look like this:
 
 ```bash
 $constrain
@@ -102,7 +104,8 @@ $end
 ```
 
 This constrains atoms 1, 2, 3, 11, and 12 relative to each other, as well as all carbon and nitrogen atoms.
-If constraints are not sufficient, you can use the $fix block to completely fix atomic positions in Cartesian space. However, this only applies to geometry optimizations and does not work for MD simulations. More details can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/xcontrol.html).
+If constraints are not sufficient, you can use the $fix block with the `atoms:` or `elements:` keywords to completely fix atomic positions in Cartesian space.
+However, this only applies to geometry optimizations and does not work for MD simulations. More details can be found in the [documentation](https://xtb-docs.readthedocs.io/en/latest/xcontrol.html).
 
 ## Restarting a **xtb** calculation
 

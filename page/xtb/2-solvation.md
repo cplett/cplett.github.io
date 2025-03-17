@@ -53,8 +53,8 @@ An up-to-date list of available solvents can be found in the [documentation](htt
 
 In principle, both solvent models perform similarly but do not reach the accuracy of more advanced and computationally expensive models like COSMO-RS or SMD.  
 
-GBSA and ALPB treat the solvent as an electrostatic continuum that is self-consistently relaxed during the SCC, directly influencing the wavefunction. Non-electrostatic contributions are added after SCC convergence.  
+{% include note.html content='GBSA and ALPB treat the solvent as an electrostatic continuum that is self-consistently relaxed during the SCC, directly influencing the wavefunction. Thus, the Wafefunction and SCC energies are not identical compared to a gas-phase calculation. Non-electrostatic contributions are added after SCC convergence.' %}
 
 More details on the theoretical background and accuracy of ALPB and GBSA can be found in this [publication](https://pubs.acs.org/doi/abs/10.1021/acs.jctc.1c00471).  
 
-{% include note.html content='Using a solvent model can improve SCC or geometry optimization convergence when gas-phase calculations fail to converge. The resulting wavefunction or structure can serve as a good starting point for a gas-phase calculation.' %}
+{% include tip.html content='Using a solvent model can improve SCC or geometry optimization convergence when gas-phase calculations fail to converge. The resulting wavefunction or structure can serve as a good starting point for a gas-phase calculation.' %}

@@ -32,6 +32,20 @@ crest --version
 
 For **crest** to work properly, **xtb** is required. **crest** will automaticall use the **xtb** program sourced, but with the keyword `--xnam <Path to xtb>` you can define the **xtb** binary that will be used by **crest**.
 
+
+## Homebrew Support
+
+**xtb** can also be installed with Homebrew.
+The support is provided by an additional [GitHub](https://github.com/grimme-lab/homebrew-qc) repository that provides access also to additional software.
+**xtb** can be installed on MacOS via
+
+```bash
+brew tap grimme-lab/qc
+brew install crest
+```
+
+{% include tip.html content='The latest version available via Homebrew is CREST 2.1.2, but CREST 3 will be available soon. For this workshop, also crest 2.1.2 can be used.'%}
+
 ## Compilation 
 A more advanced approach is to compile **crest** from the source code. Native compilation has certain advantages over precompiled binaries, such as producing a system-tailored binary and allowing modifications to the software in place.
 

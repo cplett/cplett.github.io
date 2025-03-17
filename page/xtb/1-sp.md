@@ -11,7 +11,7 @@ permalink: page/xtb/sp
 # Single-Point Calculations  
 
 The most fundamental feature of **xtb** is computing electronic energies. This calculation is performed automatically every time an **xtb** run is initiated.  
-However, you can explicitly request a single-point calculation using:  
+You can explicitly request a single-point calculation using:  
 
 ```bash
 xtb struc.xyz --sp
@@ -20,6 +20,9 @@ xtb struc.xyz --sp
 The electronic energy, given in Hartree, is printed at the end of the output as `TOTAL ENERGY`, along with the `GRADIENT NORM` and the `HOMO-LUMO GAP`.  
 
 Single-point calculations in **xtb** can be useful for quickly identifying reasonable conformers. For example, you can determine the lowest-energy gas-phase conformer by comparing electronic energies.
+
+## Exercise
+
 As an exercise, identify the lowest-energy conformer for the following two structures using both GFN-FF and GFN2-xTB. Then, compute their energy difference in kcal/mol.  
 
 {% include note.html content='1 Hartree = 627.503 kcal/mol.'%}
@@ -135,11 +138,13 @@ H    -2.0910510    2.0001870   -1.7985545
 </div>
 {% include defaulttab.html id="open-2" %}
 
-The predicted energy difference between these two conformers, as calculated using CCSD(T), is that conf1 is 1.4 kcal/mol higher in energy than conf2.  
+The predicted energy difference between these two conformers, as calculated using CCSD(T), is that conf1 is 1.4 kcal/mol higher in energy than conf2. Are both results reasonable? 
 
 {% include note.html content='GFN-FF and GFN2-xTB may exhibit larger errors in conformational energies for electronically complex systems and might even fail to identify the lowest-energy conformer. In such cases, DFT refinement with methods like **CENSO** is recommended for more reliable predictions.  
 
 A way to improve the performance of GFN-FF for conformer ranking is [ConfRank](https://pubs.acs.org/doi/10.1021/acs.jcim.4c01524).'%}  
+
+## Further Settings
 
 For the energy calculations, **xtb** tries to converge the atomic charges of the molecule, which is equal to converging a Wavefunction. The behaviour of this self-consistent charge (SCC) convergence can be adjusted, *e.g.*, the `--acc <REAL>` flag changes the accuracy and the `--iterations <INTEGER>` lets you change the maximum number of SCC cycles. The latter is particularly useful when the wavefunction does not converge within the default 250 cycles, which may occur in very large or electronically complex systems.  
 
